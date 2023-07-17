@@ -4,7 +4,9 @@ import { useSession, signIn, signOut } from 'next-auth/react'
 import UserInfo from './UserInfo'
 
 export default function Login() {
-  const { data: session } = useSession() // THIS IS LIKE USE CONTEXT
+  const { data: session } = useSession() // THIS IS SIMILAR TO USE CONTEXT
+
+  // IMPORT POST HANDLER AND PASS TO BUTTON
 
   if(session) {
     return (

@@ -1,5 +1,8 @@
+import { runMongoDb } from '@/library/mongoConnect'
 import HomePage from './components/HomePage'
 import Login from './components/Login'
+
+runMongoDb() // IS THIS THE CORRECT PLACE?
 
 export default function Home() {
   return (
