@@ -1,15 +1,15 @@
-import { runMongoDb } from '@/library/mongoConnect'
-import HomePage from './components/HomePage'
-import Login from './components/Login'
-
-runMongoDb() // IS THIS THE CORRECT PLACE?
+import { runMongoDb } from '@/library/mongoConnect';
+import HomePage from './components/HomePage';
+import Login from './components/Login';
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Login />
+      <nav>
+        <Login />
+      </nav>
       {/* <My Profile /> */}
       <HomePage />
     </main>
-  )
+  );
 }

@@ -1,36 +1,66 @@
-import { v4 as uuidv4 } from 'uuid'
-import { client } from '../mongoConnect';
+'use server';
+import { v4 as uuidv4 } from 'uuid';
+import { client, runMongoDb } from '../mongoConnect';
 
-const generateId = () => uuidv4();
-const databaseName = 'pendel-hub'
-const collectionNameUsers = 'users'
-const collectionNameRoutes = 'routes'
+runMongoDb(); // IS THIS THE CORRECT PLACE?
 
-// get user
-export const getUserByEmail = async (userEmail: string) => {
-  const collection = client.db(databaseName).collection(collectionNameUsers);
-  const userData = await collection.findOne({ userEmail })
-  return userData
-}
+// const generateId = () => uuidv4();
+const databaseName = 'pendel-hub';
+const collectionNameUsers = 'users';
+const collectionNameRoutes = 'routes';
 
-// post new user
-export const createNewUser = async (userName: string, userEmail: string, userPicture: string): Promise<any> => {
-  const newUser: any = {
-    userId: generateId(),
-    name: userName,
-    email: userEmail,
-    image: userPicture
-  };
-  try {
-    const collection = client.db(databaseName).collection(collectionNameUsers);
-    await collection.insertOne(newUser);
-  } catch (err) {
-    console.error(err)
-  }
-  return newUser;
+export type User = {
+  // userId: string // CONSIDER REMOVING IT
+  name: string;
+  email: string;
+  image: string;
 };
 
-export default {
-  getUserByEmail,
-  createNewUser
-}
+// get user by email
+export const getUserByEmail = async (userEmail: string | null | undefined) => {
+  const collection = client.db(databaseName).collection(collectionNameUsers);
+  return await collection.findOne({ email: userEmail });
+};
+
+// post new user
+export const createNewUser = async (
+  userName: string,
+  userEmail: string,
+  userPicture: string
+): Promise<any> => {
+  const newUser: User = {
+    name: userName,
+    email: userEmail,
+    image: userPicture,
+  };
+  try {
+    if(newUser.email){
+      const collection = client.db(databaseName).collection(collectionNameUsers);
+      await collection.insertOne(newUser);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+
+// export const createUserIfNotInDb = async (userSession: any) => {
+  
+//   console.log(userSession)
+//   console.log(userSession)
+//   const sessionEmail = userObject?.email;
+  
+//   const collection = client.db(databaseName).collection(collectionNameUsers);
+//   const user = await collection.findOne({ email: sessionEmail });
+//   console.log(user);
+
+//   if (user) {
+//     console.log('USER EXISTS');
+//     return;
+
+//   } else {
+//     await collection.insertOne(userObject);
+//     console.log('NEW USER');
+//     return;
+//   }
+// };
