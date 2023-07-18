@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  /* outline: dashed red; */
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  height: 32px;
+  margin: 8px;
+}
+.button{
+  background-color: #d9edb9;
+}
+
+img {
+  height: 64px;
+  width: 64px;
+  border-radius: 99px;
+  margin: 8px;
+}
+
+.navbar {
+  height: 80px;
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  top: 0px;
+  background-color: #7B2CBF;
+  justify-content: right;
+}
+
+.navbar__info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
