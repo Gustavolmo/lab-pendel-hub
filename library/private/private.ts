@@ -1,11 +1,11 @@
 'use server';
 import { client, runMongoDb } from '../mongoConnect';
-import { User } from '../types/types';
+import { Ride, User } from '../types/types';
 
 runMongoDb();
 const databaseName = 'pendel-hub';
 const collectionNameUsers = 'users';
-const collectionNameRoutes = 'routes';
+const collectionNameRides = 'routes';
 
 // get user by email
 export const getUserByEmail = async (userEmail: string | null | undefined) => {
@@ -34,4 +34,17 @@ export const createNewUser = async (
     console.error(err);
   }
 };
+
+//Create a Post
+export const createNewRide = async (userEmail: string | null | undefined, rideData: Ride) => {
+
+  const userCollection = client.db(databaseName).collection(collectionNameUsers);
+  const userData = await userCollection.findOne({ email: userEmail });
+
+  rideData.driverId = String(userData?._id)
+  console.log(rideData)
+
+  const rideCollection = client.db(databaseName).collection(collectionNameRides);
+  await rideCollection.insertOne(rideData);
+}
 

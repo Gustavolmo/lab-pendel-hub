@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-  outline: dashed red;
+  /* outline: dashed red; */
 }
 
 html, body {
@@ -26,6 +26,12 @@ img {
   width: 64px;
   border-radius: 99px;
   margin: 8px;
+}
+
+input,
+label,
+textarea {
+  margin: 4px;
 }
 
 .navbar {
@@ -59,4 +65,16 @@ img {
   padding: 4px;
   background-color: #7B2CBF;
   color: white;
+}
+
+.create-route {
+  margin: 16px;
+}
+
+.create-route__route-form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(233, 233, 233);
+  width: 50%;
+  padding: 8px;
 }

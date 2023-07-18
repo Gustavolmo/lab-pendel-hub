@@ -1,24 +1,135 @@
-'use client'
-import React from 'react'
+'use client';
+import { createNewRide } from '@/library/private/private';
+import { Ride } from '@/library/types/types';
+import React, { useState } from 'react';
+import { useSession } from 'next-auth/react';
 
 export default function routeForm() {
-  return (
-    <div>routeForm</div>
-  )
-}
+  const { data: session, status } = useSession();
+  const [formData, setFormData] = useState<Ride>({
+    driverId: '',
+    passengerId: '',
+    createdDate: '',
+    availableFromDate: '',
+    pointA: '',
+    pointB: '',
+    timeFromA: '',
+    timeFromB: '',
+    tripTime: '',
+    passengers: [],
+    frequency: '',
+    message: '',
+    carDescription: '',
+    fare: 0,
+    isRequest: false,
+  });
 
-type Ride = {
-  driverId: string // IS THERE A WAY TO CONNECT TO USER?
-  passengerId: string
-  createdDate: Date,
-  pointA: string,
-  pointB: string,
-  TimeFromA: string,
-  TimeFromB: string,
-  tripTime: string,
-  passengers: string[],
-  frequency: string[],
-  message: string,
-  carDescription: string,
-  fare: number
+  const handleChange = (e: any) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const formHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    createNewRide(session?.user?.email, formData)
+  };
+
+  return (
+    <section className="create-route">
+      <h1>CREATE ROUTE</h1>
+
+      <div>
+        <form className="create-route__route-form" onSubmit={formHandler}>
+          <div>
+            <input
+              id="request"
+              type="checkbox"
+              name="isRequest" // NOT IMPLEMENTED
+            />
+            <label>I would like to request this route - NOT FUNCTIONAL</label>
+          </div>
+
+          <label>Addresses</label>
+          <input
+            type="text"
+            placeholder="From Address"
+            required
+            name='pointA'
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="To Address"
+            required
+            name='pointB'
+            onChange={handleChange}
+          />
+
+          <label>Times</label>
+          <input
+            type="date"
+            min="2023-01-01"
+            max="2027-12-31"
+            required
+            name='availableFromDate'
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="departure time inboud"
+            required
+            name='timeFromA'
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="departure time outbound"
+            required
+            name='timeFromB'
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="travel time"
+            required
+            name='tripTime'
+            onChange={handleChange}
+          />
+
+          <label>Frequency</label>
+          <input
+            type="text"
+            placeholder="Which week days will you drive?"
+            required
+            name='frequency'
+            onChange={handleChange}
+          />
+
+          <textarea
+            id=""
+            cols={30}
+            rows={6}
+            placeholder="Add a message"
+            required
+            name='message'
+            onChange={handleChange}
+          ></textarea>
+
+          <textarea
+            id=""
+            cols={30}
+            rows={3}
+            placeholder="Describe your vehicle"
+            required
+            name='carDescription'
+            onChange={handleChange}
+          ></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  );
 }

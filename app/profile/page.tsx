@@ -1,26 +1,22 @@
 'use client';
 import Link from 'next/link';
 import React, {
-  ButtonHTMLAttributes,
-  SetStateAction,
-  SyntheticEvent,
   useState,
 } from 'react';
 import { useSession } from 'next-auth/react';
 import Login from '../components/Login';
-import RouteForm from '../components/profileComponents/routeForm';
-import RidesJoined from '../components/profileComponents/ridesJoined';
-import RoutesCreated from '../components/profileComponents/routesCreated';
-import ProfileInfo from '../components/profileComponents/profileInfo';
+import RouteForm from '../components/profileComponents/RouteForm';
+import RidesJoined from '../components/profileComponents/RidesJoined';
+import RoutesCreated from '../components/profileComponents/RoutesCreated';
+import ProfileInfo from '../components/profileComponents/ProfileInfo';
 
 export default function page() {
   const { data: session, status } = useSession();
   const isAuthenticated = session !== null && status === 'authenticated';
-  const [selection, setSelection] = useState('My Info');
+  const [selection, setSelection] = useState('Create Route');
 
   const handleSelection = (value: string) => {
     setSelection(value);
-    // console.log(selection)
   };
 
   if (isAuthenticated) {
