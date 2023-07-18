@@ -74,7 +74,7 @@ export default function page() {
               My Info
             </button>
           </section>
-          {/* components -> FORM + MY ROUTES + MY RIDES + PROFILE SETTINGS */}
+
           {selection === 'Create Route' && <RouteForm />}
           {selection === 'My Routes' && <RoutesCreated />}
           {selection === 'Joined Rides' && <RidesJoined />}

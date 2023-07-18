@@ -35,7 +35,7 @@ export const createNewUser = async (
   }
 };
 
-//Create a Post
+//Create a Route
 export const createNewRide = async (userEmail: string | null | undefined, rideData: Ride) => {
 
   const userCollection = client.db(databaseName).collection(collectionNameUsers);
@@ -48,3 +48,16 @@ export const createNewRide = async (userEmail: string | null | undefined, rideDa
   await rideCollection.insertOne(rideData);
 }
 
+// Get user created routes
+export const getUserRoutes = async (userEmail: string | null | undefined) => {
+
+  const userCollection = client.db(databaseName).collection(collectionNameUsers);
+  const userData = await userCollection.findOne({ email: userEmail });
+  console.log(userData)
+
+  const userId = String(userData?._id)
+
+  const rideCollection = client.db(databaseName).collection(collectionNameRides);
+  const routeData = await rideCollection.find({driverId: userId}).toArray();
+  return JSON.stringify(routeData)
+}
