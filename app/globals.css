@@ -12,9 +12,11 @@ html, body {
 }
 
 button {
+  font-weight: lighter;
   height: 32px;
   margin: 8px;
 }
+
 .button{
   background-color: #d9edb9;
 }
@@ -48,9 +50,13 @@ img {
 }
 
 .profile-btn {
-  background: blue
+  padding: 4px;
+  background: #d9edb9;
+  color: black;
 }
 
 .profile-btn--selected {
+  padding: 4px;
   background-color: #7B2CBF;
+  color: white;
 }

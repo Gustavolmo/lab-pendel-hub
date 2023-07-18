@@ -1,6 +1,11 @@
 'use client';
 import Link from 'next/link';
-import React, { SetStateAction, useState } from 'react';
+import React, {
+  ButtonHTMLAttributes,
+  SetStateAction,
+  SyntheticEvent,
+  useState,
+} from 'react';
 import { useSession } from 'next-auth/react';
 import Login from '../components/Login';
 import RouteForm from '../components/profileComponents/routeForm';
@@ -11,13 +16,12 @@ import ProfileInfo from '../components/profileComponents/profileInfo';
 export default function page() {
   const { data: session, status } = useSession();
   const isAuthenticated = session !== null && status === 'authenticated';
-  const [selection, setSelection] = useState('My Info')
+  const [selection, setSelection] = useState('My Info');
 
   const handleSelection = (value: string) => {
-    setSelection(value)
+    setSelection(value);
     // console.log(selection)
-  }
-
+  };
 
   if (isAuthenticated) {
     return (
@@ -29,20 +33,56 @@ export default function page() {
             </button>
           </Link>
         </nav>
-  
+
         <main className="profile-main">
           <h1>MY PAGES</h1>
-          <section>
-            <button onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleSelection(e.target.textContent)} className={selection === 'Create Route'? 'profile-btn--selected' : 'profile-btn'}>Create Route</button>
-            <button onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleSelection(e.target.textContent)} className={selection === 'My Routes'? 'profile-btn--selected' : 'profile-btn'}>My Routes</button>
-            <button onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleSelection(e.target.textContent)} className={selection === 'Joined Rides'? 'profile-btn--selected' : 'profile-btn'}>Joined Rides</button>
-            <button onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleSelection(e.target.textContent)} className={selection === 'My Info'? 'profile-btn--selected' : 'profile-btn'}>My Info</button>
+          <section className="profile-main__selections">
+            <button
+              onClick={(e: any) => handleSelection(e.target.textContent)}
+              className={
+                selection === 'Create Route'
+                  ? 'profile-btn--selected'
+                  : 'profile-btn'
+              }
+            >
+              Create Route
+            </button>
+            <button
+              onClick={(e: any) => handleSelection(e.target.textContent)}
+              className={
+                selection === 'My Routes'
+                  ? 'profile-btn--selected'
+                  : 'profile-btn'
+              }
+            >
+              My Routes
+            </button>
+            <button
+              onClick={(e: any) => handleSelection(e.target.textContent)}
+              className={
+                selection === 'Joined Rides'
+                  ? 'profile-btn--selected'
+                  : 'profile-btn'
+              }
+            >
+              Joined Rides
+            </button>
+            <button
+              onClick={(e: any) => handleSelection(e.target.textContent)}
+              className={
+                selection === 'My Info'
+                  ? 'profile-btn--selected'
+                  : 'profile-btn'
+              }
+            >
+              My Info
+            </button>
           </section>
           {/* components -> FORM + MY ROUTES + MY RIDES + PROFILE SETTINGS */}
-          <RouteForm />
-          <RoutesCreated />
-          <RidesJoined />
-          <ProfileInfo />
+          {selection === 'Create Route' && <RouteForm />}
+          {selection === 'My Routes' && <RoutesCreated />}
+          {selection === 'Joined Rides' && <RidesJoined />}
+          {selection === 'My Info' && <ProfileInfo />}
         </main>
       </>
     );
@@ -53,6 +93,5 @@ export default function page() {
       <p>401 - not authorized</p>
       <Login />
     </>
-  )
-
+  );
 }
