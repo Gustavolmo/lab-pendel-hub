@@ -8,7 +8,6 @@ export default function Home() {
       <nav className='navbar'>
         <Login />
       </nav>
-      {/* <My Profile /> */}
       <HomePage />
     </main>
   );

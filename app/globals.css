@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-  /* outline: dashed red; */
+  outline: dashed red;
 }
 
 html, body {
@@ -41,4 +41,16 @@ img {
   flex-direction: row;
   align-items: center;
   
+}
+
+.profile-main {
+  margin-top: 80px;
+}
+
+.profile-btn {
+  background: blue
+}
+
+.profile-btn--selected {
+  background-color: #7B2CBF;
 }

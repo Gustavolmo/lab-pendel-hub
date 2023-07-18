@@ -1,7 +1,7 @@
 'use client';
-import React, { useEffect, useState } from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import UserInfo from './UserInfo';
+import Link from 'next/link';
 
 export default function Login() {
   const { data: session } = useSession(); // THIS IS SIMILAR TO USE CONTEXT
@@ -9,7 +9,12 @@ export default function Login() {
   if (session) {
     return (
       <div className="navbar__info">
-        {/* My Profile Link Component */}
+        <Link href={'http://localhost:3000//profile'}>
+          <button className=" text-blakc border p-1 px-4 rounded button">
+            My Profile
+          </button>
+        </Link>
+
         <button
           onClick={() => {
             signOut();
@@ -24,7 +29,7 @@ export default function Login() {
     );
   } else {
     return (
-      <div className='navbar__info'>
+      <div className="navbar__info">
         <button
           onClick={() => signIn()}
           type="button"
