@@ -9,8 +9,15 @@ const collectionNameUsers = 'users';
 const collectionNameRides = 'routes';
 
 //get all routes
-export const getAllRoutes = async () => {
+export const getAllOfferedRoutes = async () => {
   const userCollection = client.db(databaseName).collection(collectionNameRides);
-  const rideData = await userCollection.find({}).toArray();
+  const rideData = await userCollection.find({isRequest: false}).toArray();
+  return JSON.stringify(rideData)
+}
+
+//get all routes
+export const getAllRequestedRoutes = async () => {
+  const userCollection = client.db(databaseName).collection(collectionNameRides);
+  const rideData = await userCollection.find({isRequest: true}).toArray();
   return JSON.stringify(rideData)
 }

@@ -31,9 +31,9 @@ export default function routesCreated() {
         <section>
           {accessUserRoute.current.map((route: Ride, index: number) => {
             return (
-                <article key={`${index}_${route.createdDate}`}>
-                  <PrivateRouteCard route={route} />
-                </article>
+              <article key={`${index}_${route.createdDate}`}>
+                <PrivateRouteCard route={route} />
+              </article>
             );
           })}
         </section>

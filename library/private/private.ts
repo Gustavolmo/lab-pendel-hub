@@ -61,6 +61,7 @@ export const getUserOfferedRoutes = async (userEmail: string | null | undefined)
   return JSON.stringify(routeData)
 }
 
+// Get user requested routes
 export const getUserRequestedRoutes = async (userEmail: string | null | undefined) => {
 
   const userCollection = client.db(databaseName).collection(collectionNameUsers);
@@ -72,3 +73,4 @@ export const getUserRequestedRoutes = async (userEmail: string | null | undefine
   const routeData = await rideCollection.find({driverId: userId, isRequest: true}).toArray();
   return JSON.stringify(routeData)
 }
+

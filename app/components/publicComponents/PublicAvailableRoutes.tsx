@@ -1,9 +1,8 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import { useSession } from 'next-auth/react';
-import { getUserRoutes } from '@/library/private/private';
 import { Ride } from '@/library/types/types';
-import { getAllRoutes } from '@/library/public/public';
+import { getAllOfferedRoutes } from '@/library/public/public';
 import PublicRouteCard from './PublicRouteCard';
 
 // import { Ride } from '@/library/types/types';
@@ -19,7 +18,7 @@ export default function PublicAvailableRoutes() {
         return;
       }
       setInProcess(true);
-      const routeFromDb = await getAllRoutes();
+      const routeFromDb = await getAllOfferedRoutes();
       const parsedRoute = JSON.parse(routeFromDb);
       accessUserRoute.current = parsedRoute;
       setInProcess(false);
