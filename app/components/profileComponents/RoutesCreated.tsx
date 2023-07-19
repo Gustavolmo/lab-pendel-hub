@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PrivateRouteCard from './PrivateRouteCard';
 import { useSession } from 'next-auth/react';
-import { getUserRoutes } from '@/library/private/private';
+import { getUserOfferedRoutes } from '@/library/private/private';
 import { Ride } from '@/library/types/types';
 
 export default function routesCreated() {
@@ -16,7 +16,7 @@ export default function routesCreated() {
         return;
       }
       setInProcess(true);
-      const routeFromDb = await getUserRoutes(session?.user?.email);
+      const routeFromDb = await getUserOfferedRoutes(session?.user?.email);
       const parsedRoute = JSON.parse(routeFromDb);
       accessUserRoute.current = parsedRoute;
       setInProcess(false);
@@ -31,9 +31,9 @@ export default function routesCreated() {
         <section>
           {accessUserRoute.current.map((route: Ride, index: number) => {
             return (
-              <article key={`${index}_${route.createdDate}`}>
-                <PrivateRouteCard route={route} />
-              </article>
+                <article key={`${index}_${route.createdDate}`}>
+                  <PrivateRouteCard route={route} />
+                </article>
             );
           })}
         </section>

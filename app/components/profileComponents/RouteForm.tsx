@@ -7,7 +7,8 @@ import { useSession } from 'next-auth/react';
 export default function routeForm() {
   const { data: session, status } = useSession();
   const date = String(new Date().toLocaleDateString());
-  const [isChecked, setIsChecked] = useState(false) 
+  const [isChecked, setIsChecked] = useState(false)
+  
   const [formData, setFormData] = useState<Ride>({
     driverId: '',
     driverName: '',
@@ -25,12 +26,11 @@ export default function routeForm() {
     message: '',
     carDescription: '',
     fare: 0,
-    isRequest: false,
+    isRequest: isChecked,
   });
 
   const checkBoxChange = () => {
     setIsChecked(!isChecked)
-    console.log(isChecked)
   }
 
   const handleChange = (e: any) => {
@@ -42,7 +42,7 @@ export default function routeForm() {
 
   const formHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    createNewRide(session?.user?.email, formData);
+    createNewRide(session?.user?.email, {...formData, isRequest: isChecked});
   };
 
   return (
@@ -58,7 +58,7 @@ export default function routeForm() {
               name="isRequest" // NOT IMPLEMENTED
               onClick={checkBoxChange}
             />
-            <label>I would like to request this route - NOT FUNCTIONAL</label>
+            <label>I would like to request this route</label>
           </div>
 
           <label>Addresses</label>

@@ -49,7 +49,7 @@ export const createNewRide = async (userEmail: string | null | undefined, rideDa
 }
 
 // Get user created routes
-export const getUserRoutes = async (userEmail: string | null | undefined) => {
+export const getUserOfferedRoutes = async (userEmail: string | null | undefined) => {
 
   const userCollection = client.db(databaseName).collection(collectionNameUsers);
   const userData = await userCollection.findOne({ email: userEmail });
@@ -57,6 +57,18 @@ export const getUserRoutes = async (userEmail: string | null | undefined) => {
   const userId = String(userData?._id)
 
   const rideCollection = client.db(databaseName).collection(collectionNameRides);
-  const routeData = await rideCollection.find({driverId: userId}).toArray();
+  const routeData = await rideCollection.find({driverId: userId, isRequest: false}).toArray();
+  return JSON.stringify(routeData)
+}
+
+export const getUserRequestedRoutes = async (userEmail: string | null | undefined) => {
+
+  const userCollection = client.db(databaseName).collection(collectionNameUsers);
+  const userData = await userCollection.findOne({ email: userEmail });
+
+  const userId = String(userData?._id)
+
+  const rideCollection = client.db(databaseName).collection(collectionNameRides);
+  const routeData = await rideCollection.find({driverId: userId, isRequest: true}).toArray();
   return JSON.stringify(routeData)
 }
