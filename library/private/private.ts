@@ -42,7 +42,7 @@ export const createNewRide = async (userEmail: string | null | undefined, rideDa
   const userData = await userCollection.findOne({ email: userEmail });
 
   rideData.driverId = String(userData?._id)
-  console.log(rideData)
+  rideData.driverName = userData?.name
 
   const rideCollection = client.db(databaseName).collection(collectionNameRides);
   await rideCollection.insertOne(rideData);
@@ -53,7 +53,6 @@ export const getUserRoutes = async (userEmail: string | null | undefined) => {
 
   const userCollection = client.db(databaseName).collection(collectionNameUsers);
   const userData = await userCollection.findOne({ email: userEmail });
-  console.log(userData)
 
   const userId = String(userData?._id)
 

@@ -12,7 +12,9 @@ html, body {
 }
 
 button {
-  font-weight: lighter;
+  font-size: 10px;
+  border-radius: 4px;
+  font-weight: 200;
   height: 32px;
   margin: 8px;
 }
@@ -48,7 +50,6 @@ textarea {
   display: flex;
   flex-direction: row;
   align-items: center;
-  
 }
 
 .profile-main {
@@ -77,4 +78,17 @@ textarea {
   background-color: rgb(233, 233, 233);
   width: 50%;
   padding: 8px;
+}
+
+.route-card {
+  font-size: 12px;
+  background-color: #d9edb9;
+  padding: 8px;
+  margin: 16px;
+  margin-top: 32px;
+  border-radius: 16px;
+  max-width: 700px;
+  box-shadow: 0px 106px 42px rgba(0, 0, 0, 0.01),
+    0px 59px 36px rgba(0, 0, 0, 0.05), 0px 26px 26px rgba(0, 0, 0, 0.09),
+    0px 7px 15px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
 }

@@ -1,14 +1,13 @@
 'use client';
 import Link from 'next/link';
-import React, {
-  useState,
-} from 'react';
+import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
-import Login from '../components/Login';
+import Login from '../components/LoginButton';
 import RouteForm from '../components/profileComponents/RouteForm';
 import RidesJoined from '../components/profileComponents/RidesJoined';
 import RoutesCreated from '../components/profileComponents/RoutesCreated';
 import ProfileInfo from '../components/profileComponents/ProfileInfo';
+import PrivateRideRequest from '../components/profileComponents/PrivateRideRequest';
 
 export default function page() {
   const { data: session, status } = useSession();
@@ -56,6 +55,16 @@ export default function page() {
             <button
               onClick={(e: any) => handleSelection(e.target.textContent)}
               className={
+                selection === 'My Requests'
+                  ? 'profile-btn--selected'
+                  : 'profile-btn'
+              }
+            >
+              My Requests
+            </button>
+            <button
+              onClick={(e: any) => handleSelection(e.target.textContent)}
+              className={
                 selection === 'Joined Rides'
                   ? 'profile-btn--selected'
                   : 'profile-btn'
@@ -79,6 +88,7 @@ export default function page() {
           {selection === 'My Routes' && <RoutesCreated />}
           {selection === 'Joined Rides' && <RidesJoined />}
           {selection === 'My Info' && <ProfileInfo />}
+          {selection === 'My Requests' && <PrivateRideRequest />}
         </main>
       </>
     );

@@ -6,6 +6,7 @@ export type User = {
 
 export type Ride = {
   driverId: string; // IS THERE A WAY TO CONNECT TO USER?
+  driverName: string,
   passengerId: string;
   createdDate: string; // MIND THE DATE TYPE
   availableFromDate: string; // MIND THE DATE TYPE
@@ -15,6 +16,7 @@ export type Ride = {
   timeFromB: string;
   tripTime: string;
   passengers: string[];
+  capacity: number;
   frequency: string;
   message: string;
   carDescription: string;

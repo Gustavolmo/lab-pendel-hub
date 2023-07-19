@@ -6,10 +6,13 @@ import { useSession } from 'next-auth/react';
 
 export default function routeForm() {
   const { data: session, status } = useSession();
+  const date = String(new Date().toLocaleDateString());
+  const [isChecked, setIsChecked] = useState(false) 
   const [formData, setFormData] = useState<Ride>({
     driverId: '',
+    driverName: '',
     passengerId: '',
-    createdDate: '',
+    createdDate: date,
     availableFromDate: '',
     pointA: '',
     pointB: '',
@@ -17,12 +20,18 @@ export default function routeForm() {
     timeFromB: '',
     tripTime: '',
     passengers: [],
+    capacity: 0,
     frequency: '',
     message: '',
     carDescription: '',
     fare: 0,
     isRequest: false,
   });
+
+  const checkBoxChange = () => {
+    setIsChecked(!isChecked)
+    console.log(isChecked)
+  }
 
   const handleChange = (e: any) => {
     setFormData({
@@ -33,7 +42,7 @@ export default function routeForm() {
 
   const formHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    createNewRide(session?.user?.email, formData)
+    createNewRide(session?.user?.email, formData);
   };
 
   return (
@@ -47,6 +56,7 @@ export default function routeForm() {
               id="request"
               type="checkbox"
               name="isRequest" // NOT IMPLEMENTED
+              onClick={checkBoxChange}
             />
             <label>I would like to request this route - NOT FUNCTIONAL</label>
           </div>
@@ -56,14 +66,14 @@ export default function routeForm() {
             type="text"
             placeholder="From Address"
             required
-            name='pointA'
+            name="pointA"
             onChange={handleChange}
           />
           <input
             type="text"
             placeholder="To Address"
             required
-            name='pointB'
+            name="pointB"
             onChange={handleChange}
           />
 
@@ -73,28 +83,28 @@ export default function routeForm() {
             min="2023-01-01"
             max="2027-12-31"
             required
-            name='availableFromDate'
+            name="availableFromDate"
             onChange={handleChange}
           />
           <input
             type="text"
             placeholder="departure time inboud"
             required
-            name='timeFromA'
+            name="timeFromA"
             onChange={handleChange}
           />
           <input
             type="text"
             placeholder="departure time outbound"
             required
-            name='timeFromB'
+            name="timeFromB"
             onChange={handleChange}
           />
           <input
             type="text"
             placeholder="travel time"
             required
-            name='tripTime'
+            name="tripTime"
             onChange={handleChange}
           />
 
@@ -103,17 +113,26 @@ export default function routeForm() {
             type="text"
             placeholder="Which week days will you drive?"
             required
-            name='frequency'
+            name="frequency"
             onChange={handleChange}
           />
+          <label>Capacity</label>
+          <input
+            type="number"
+            min={1}
+            max={20}
+            onChange={handleChange}
+            name="capacity"
+          />
 
+          <label>Details</label>
           <textarea
             id=""
             cols={30}
             rows={6}
             placeholder="Add a message"
             required
-            name='message'
+            name="message"
             onChange={handleChange}
           ></textarea>
 
@@ -123,7 +142,7 @@ export default function routeForm() {
             rows={3}
             placeholder="Describe your vehicle"
             required
-            name='carDescription'
+            name="carDescription"
             onChange={handleChange}
           ></textarea>
 

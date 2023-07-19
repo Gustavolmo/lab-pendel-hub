@@ -1,9 +1,9 @@
 'use client';
 import { useSession, signIn, signOut } from 'next-auth/react';
-import UserInfo from './UserInfo';
 import Link from 'next/link';
+import UserImage from './UserImage';
 
-export default function Login() {
+export default function LoginButton() {
   const { data: session } = useSession(); // THIS IS SIMILAR TO USE CONTEXT
 
   if (session) {
@@ -24,7 +24,7 @@ export default function Login() {
         >
           Sign Out
         </button>
-        <UserInfo user={session.user} />
+        <UserImage user={session.user} />
       </div>
     );
   } else {

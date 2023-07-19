@@ -1,11 +1,14 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import PrivateRouteCard from './PrivateRouteCard';
 import { useSession } from 'next-auth/react';
 import { getUserRoutes } from '@/library/private/private';
 import { Ride } from '@/library/types/types';
+import { getAllRoutes } from '@/library/public/public';
+import PublicRouteCard from './PublicRouteCard';
 
-export default function routesCreated() {
+// import { Ride } from '@/library/types/types';
+
+export default function PublicAvailableRoutes() {
   const { data: session, status } = useSession();
   const accessUserRoute = useRef([]);
   const [inProcess, setInProcess] = useState(false);
@@ -16,7 +19,7 @@ export default function routesCreated() {
         return;
       }
       setInProcess(true);
-      const routeFromDb = await getUserRoutes(session?.user?.email);
+      const routeFromDb = await getAllRoutes();
       const parsedRoute = JSON.parse(routeFromDb);
       accessUserRoute.current = parsedRoute;
       setInProcess(false);
@@ -32,7 +35,7 @@ export default function routesCreated() {
           {accessUserRoute.current.map((route: Ride, index: number) => {
             return (
               <article key={`${index}_${route.createdDate}`}>
-                <PrivateRouteCard route={route} />
+                <PublicRouteCard route={route} />
               </article>
             );
           })}
