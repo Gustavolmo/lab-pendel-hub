@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
-import Login from '../components/LoginButton';
 import RouteForm from '../components/profileComponents/RouteForm';
 import RidesJoined from '../components/profileComponents/RidesJoined';
 import RoutesCreated from '../components/profileComponents/RoutesCreated';
 import ProfileInfo from '../components/profileComponents/ProfileInfo';
 import PrivateRideRequest from '../components/profileComponents/PrivateRideRequest';
+import LoginButton from '../components/LoginButton';
 
 export default function page() {
   const { data: session, status } = useSession();
@@ -97,7 +97,7 @@ export default function page() {
   return (
     <>
       <p>401 - not authorized</p>
-      <Login />
+      <LoginButton />
     </>
   );
 }

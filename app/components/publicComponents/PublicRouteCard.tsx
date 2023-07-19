@@ -1,12 +1,18 @@
+import { addPassengerToRoute } from '@/library/private/private';
 import { Ride } from '@/library/types/types';
 import { useSession } from 'next-auth/react';
-import React from 'react';
 
 export default function PublicRouteCard({ route }: { route: Ride }) {
-const {data: session} = useSession()
+const { data: session, status } = useSession();
+const isAuthenticated = session !== null && status === 'authenticated';
 
-const handleJoinRoute = (sessionEmail: string) => {
-  // METHOD FROM DB WITH EMAIL
+const handleJoinRoute = () => {
+  if (isAuthenticated) {
+    console.log('outch!!')
+    addPassengerToRoute(session?.user?.email, route.driverId)
+  } else {
+    console.log('NOT AUTHORIZED')
+  }
 }
 
 
@@ -39,7 +45,7 @@ const handleJoinRoute = (sessionEmail: string) => {
           <b>One-way-fare:</b> 500kr |TBD|
         </p>
 
-        <button onClick={() => {}}>Join</button>
+        <button onClick={handleJoinRoute}>Join</button>
       </article>
     </div>
   );
