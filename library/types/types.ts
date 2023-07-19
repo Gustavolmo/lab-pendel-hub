@@ -7,7 +7,8 @@ export type User = {
 export type Ride = {
   driverId: string; // IS THERE A WAY TO CONNECT TO USER?
   driverName: string,
-  passengerId: string;
+  requestorId: string;
+  requestorName: string;
   createdDate: string; // MIND THE DATE TYPE
   availableFromDate: string; // MIND THE DATE TYPE
   pointA: string;

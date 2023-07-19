@@ -48,6 +48,19 @@ export const createNewRide = async (userEmail: string | null | undefined, rideDa
   await rideCollection.insertOne(rideData);
 }
 
+//Create a Request
+export const createNewRequest = async (userEmail: string | null | undefined, rideData: Ride) => {
+
+  const userCollection = client.db(databaseName).collection(collectionNameUsers);
+  const userData = await userCollection.findOne({ email: userEmail });
+
+  rideData.requestorId = String(userData?._id)
+  rideData.requestorName = userData?.name
+
+  const rideCollection = client.db(databaseName).collection(collectionNameRides);
+  await rideCollection.insertOne(rideData);
+}
+
 // Get user created routes
 export const getUserOfferedRoutes = async (userEmail: string | null | undefined) => {
 
@@ -67,10 +80,17 @@ export const getUserRequestedRoutes = async (userEmail: string | null | undefine
   const userCollection = client.db(databaseName).collection(collectionNameUsers);
   const userData = await userCollection.findOne({ email: userEmail });
 
-  const userId = String(userData?._id)
+  const requestorId = String(userData?._id)
 
   const rideCollection = client.db(databaseName).collection(collectionNameRides);
-  const routeData = await rideCollection.find({driverId: userId, isRequest: true}).toArray();
+  const routeData = await rideCollection.find({requestorId: requestorId, isRequest: true}).toArray();
   return JSON.stringify(routeData)
 }
 
+//Post passenger to route
+export const addPassengerToRoute = async (sessionEmail: string) => {
+  const userCollection = client.db(databaseName).collection(collectionNameRides);
+  const rideData = await userCollection.findOne({email: sessionEmail})
+
+  // UNDER CONSTRUCTION
+}

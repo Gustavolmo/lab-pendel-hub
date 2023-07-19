@@ -1,7 +1,7 @@
 'use client';
-import { createNewRide } from '@/library/private/private';
+import { createNewRequest, createNewRide } from '@/library/private/private';
 import { Ride } from '@/library/types/types';
-import React, { useState } from 'react';
+import React, { InputHTMLAttributes, useState } from 'react';
 import { useSession } from 'next-auth/react';
 
 export default function routeForm() {
@@ -12,7 +12,8 @@ export default function routeForm() {
   const [formData, setFormData] = useState<Ride>({
     driverId: '',
     driverName: '',
-    passengerId: '',
+    requestorId: '',
+    requestorName: '',
     createdDate: date,
     availableFromDate: '',
     pointA: '',
@@ -42,7 +43,35 @@ export default function routeForm() {
 
   const formHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    createNewRide(session?.user?.email, {...formData, isRequest: isChecked});
+
+    if (isChecked){
+      createNewRequest(session?.user?.email, {...formData, isRequest: isChecked});
+    } else {
+      createNewRide(session?.user?.email, {...formData, isRequest: isChecked});
+    }
+
+    setFormData({
+      driverId: '',
+      driverName: '',
+      requestorId: '',
+      requestorName: '',
+      createdDate: date,
+      availableFromDate: '',
+      pointA: '',
+      pointB: '',
+      timeFromA: '',
+      timeFromB: '',
+      tripTime: '',
+      passengers: [],
+      capacity: 0,
+      frequency: '',
+      message: '',
+      carDescription: '',
+      fare: 0,
+      isRequest: isChecked,
+    });
+
+    setIsChecked(false)
   };
 
   return (
@@ -55,8 +84,10 @@ export default function routeForm() {
             <input
               id="request"
               type="checkbox"
-              name="isRequest" // NOT IMPLEMENTED
+              name="isRequest"
               onClick={checkBoxChange}
+              checked={isChecked}
+              onChange={(e) => {e.target.checked = isChecked}}
             />
             <label>I would like to request this route</label>
           </div>
@@ -68,6 +99,7 @@ export default function routeForm() {
             required
             name="pointA"
             onChange={handleChange}
+            value={formData.pointA}
           />
           <input
             type="text"
@@ -75,6 +107,7 @@ export default function routeForm() {
             required
             name="pointB"
             onChange={handleChange}
+            value={formData.pointB}
           />
 
           <label>Times</label>
@@ -85,6 +118,7 @@ export default function routeForm() {
             required
             name="availableFromDate"
             onChange={handleChange}
+            value={formData.availableFromDate}
           />
           <input
             type="text"
@@ -92,6 +126,7 @@ export default function routeForm() {
             required
             name="timeFromA"
             onChange={handleChange}
+            value={formData.timeFromA}
           />
           <input
             type="text"
@@ -99,6 +134,7 @@ export default function routeForm() {
             required
             name="timeFromB"
             onChange={handleChange}
+            value={formData.timeFromB}
           />
           <input
             type="text"
@@ -106,6 +142,7 @@ export default function routeForm() {
             required
             name="tripTime"
             onChange={handleChange}
+            value={formData.tripTime}
           />
 
           <label>Frequency</label>
@@ -115,14 +152,16 @@ export default function routeForm() {
             required
             name="frequency"
             onChange={handleChange}
+            value={formData.frequency}
           />
           <label>Capacity</label>
           <input
             type="number"
             min={1}
             max={20}
-            onChange={handleChange}
             name="capacity"
+            onChange={handleChange}
+            value={formData.capacity}
           />
 
           <label>Details</label>
@@ -134,6 +173,7 @@ export default function routeForm() {
             required
             name="message"
             onChange={handleChange}
+            value={formData.message}
           ></textarea>
 
           <textarea
@@ -144,6 +184,7 @@ export default function routeForm() {
             required
             name="carDescription"
             onChange={handleChange}
+            value={formData.carDescription}
           ></textarea>
 
           <button type="submit">Submit</button>

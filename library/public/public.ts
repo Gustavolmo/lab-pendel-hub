@@ -15,7 +15,7 @@ export const getAllOfferedRoutes = async () => {
   return JSON.stringify(rideData)
 }
 
-//get all routes
+//get all requested routes
 export const getAllRequestedRoutes = async () => {
   const userCollection = client.db(databaseName).collection(collectionNameRides);
   const rideData = await userCollection.find({isRequest: true}).toArray();

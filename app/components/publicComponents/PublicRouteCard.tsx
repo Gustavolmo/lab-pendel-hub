@@ -1,7 +1,16 @@
 import { Ride } from '@/library/types/types';
+import { useSession } from 'next-auth/react';
 import React from 'react';
 
 export default function PublicRouteCard({ route }: { route: Ride }) {
+const {data: session} = useSession()
+
+const handleJoinRoute = (sessionEmail: string) => {
+  // METHOD FROM DB WITH EMAIL
+}
+
+
+
   return (
     <div>
       <article className="route-card">
@@ -30,7 +39,7 @@ export default function PublicRouteCard({ route }: { route: Ride }) {
           <b>One-way-fare:</b> 500kr |TBD|
         </p>
 
-        <button>Join</button>
+        <button onClick={() => {}}>Join</button>
       </article>
     </div>
   );
