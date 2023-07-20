@@ -2,13 +2,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { Ride } from '@/library/types/types';
-import { getRidesJoinedByUser } from '@/library/private/private';
+import {
+  getRidesJoinedByUser,
+  leaveJoinedRide,
+} from '@/library/private/private';
 import PrivateJoinedCard from './PrivateJoinedCard';
 
 export default function ridesJoined() {
   const { data: session, status } = useSession();
   const accessUserRoute = useRef([]);
   const [inProcess, setInProcess] = useState(false);
+  const [click, setClick] = useState(false);
 
   useEffect(() => {
     const handleGetUserRoute = async () => {
@@ -17,13 +21,12 @@ export default function ridesJoined() {
       }
       setInProcess(true);
       const routeFromDb = await getRidesJoinedByUser(session?.user?.email);
-      console.log(routeFromDb)
-      const parsedRoute =  JSON.parse(routeFromDb);
+      const parsedRoute = JSON.parse(routeFromDb);
       accessUserRoute.current = parsedRoute;
       setInProcess(false);
     };
     handleGetUserRoute();
-  }, []);
+  }, [click]);
 
   if (accessUserRoute.current) {
     return (
@@ -33,7 +36,11 @@ export default function ridesJoined() {
           {accessUserRoute.current.map((route: Ride, index: number) => {
             return (
               <article key={`${index}_${route.createdDate}`}>
-                <PrivateJoinedCard route={route} />
+                <PrivateJoinedCard
+                  route={route}
+                  setClick={setClick}
+                  click={click}
+                />
               </article>
             );
           })}

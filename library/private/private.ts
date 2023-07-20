@@ -1,4 +1,5 @@
 'use server';
+import { ObjectId } from 'mongodb';
 import { client, runMongoDb } from '../mongoConnect';
 import { Ride, User } from '../types/types';
 
@@ -152,7 +153,27 @@ export const getRidesJoinedByUser = async (
     .collection(collectionNameRides);
 
   const data = await rideCollection.find({ passengers: userId }).toArray();
-  return JSON.stringify(data)
+  return JSON.stringify(data);
 };
 
+// Leave the joined ride
+export const leaveJoinedRide = async (
+  userEmail: string | null | undefined,
+  uniqueId: string
+) => {
+  const userCollection = client
+    .db(databaseName)
+    .collection(collectionNameUsers);
+  const userData = await userCollection.findOne({ email: userEmail });
 
+  const userId = String(userData?._id);
+
+  const rideCollection = client
+    .db(databaseName)
+    .collection(collectionNameRides);
+
+  await rideCollection.updateOne(
+    { _id: new ObjectId(uniqueId) },
+    { $pull: { passengers: userId } }
+  );
+};
