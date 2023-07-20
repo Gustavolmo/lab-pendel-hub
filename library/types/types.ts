@@ -7,7 +7,7 @@ export type User = {
 };
 
 export type Ride = {
-  _id?: ObjectId,
+  _id?: ObjectId;
   driverId: string; // IS THERE A WAY TO CONNECT TO USER?
   driverName: string,
   requestorId: string;

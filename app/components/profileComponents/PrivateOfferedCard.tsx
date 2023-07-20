@@ -1,9 +1,16 @@
 'use client';
+import { deleteRoute } from '@/library/private/private';
 import { Ride } from '@/library/types/types';
 import React from 'react';
 // import { Ride } from '@/library/types/types'
 
 export default function PrivateOfferedCard({ route }: { route: Ride }) {
+
+  const handleDeleteRoute = () => {
+    console.log('')
+    deleteRoute(String(route._id))
+  }
+
   return (
     <article className="route-card">
       <h2><b>Driver:</b> {route.driverName}</h2>
@@ -16,7 +23,7 @@ export default function PrivateOfferedCard({ route }: { route: Ride }) {
 
       <p><b>Rating:</b> 5/5|TBD| <b>Seating:</b> {route.capacity} |TBD|  <b>One-way-fare:</b> 500kr |TBD|</p>
 
-      <button>DELETE</button>
+      <button onClick={handleDeleteRoute}>DELETE </button>
     </article>
   );
 }

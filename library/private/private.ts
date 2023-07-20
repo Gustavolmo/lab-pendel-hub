@@ -177,3 +177,15 @@ export const leaveJoinedRide = async (
     { $pull: { passengers: userId } }
   );
 };
+
+// DeleteOfferedRoute
+export const deleteRoute = async (uniqueId: string) => {
+  const rideCollection = client
+    .db(databaseName)
+    .collection(collectionNameRides);
+  const result = await rideCollection.deleteOne({ _id: new ObjectId(uniqueId) });
+  console.log(result)
+};
+
+// leaveAllJoinedRides
+// DeleteRequestedRoute
