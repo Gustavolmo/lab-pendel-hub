@@ -1,10 +1,31 @@
 'use client';
-import { deleteRoute } from '@/library/private/private';
-import { Ride } from '@/library/types/types';
-import React from 'react';
-// import { Ride } from '@/library/types/types'
+import { deleteRoute, getAllPassengers } from '@/library/private/private';
+import { User } from '@/library/types/types';
+import { useSession } from 'next-auth/react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export default function PrivateOfferRouteCard({ route, setClick, click}: any) {
+  const accessAllPassengers = useRef([]);
+  const [inProcess, setInProcess] = useState(false);
+
+  useEffect(() => {
+    const handleAsync = async () => {
+      if (inProcess) {
+        return;
+      }
+      setInProcess(true);
+      const routeFromDb = await getAllPassengers(route._id);
+      const parsedRoute = JSON.parse(routeFromDb);
+      accessAllPassengers.current = parsedRoute;
+      setInProcess(false);
+    };
+    handleAsync();
+  }, []);
+
+  if(accessAllPassengers.current) {
+    console.log(accessAllPassengers.current) // REMOVE LATER
+  }
+
 
   const handleDeleteRoute = () => {
     deleteRoute(String(route._id))
@@ -20,8 +41,24 @@ export default function PrivateOfferRouteCard({ route, setClick, click}: any) {
       <p><b>Travel Time:</b> {route.tripTime}</p>
 
       <p><b>Frequency:</b> {route.frequency}</p>
+      <p><b>Seating:</b> {route.capacity} <b>Taken:</b> {route.passengers.length}</p>
 
-      <p><b>Rating:</b> 5/5|TBD| <b>Seating:</b> {route.capacity} |TBD|  <b>One-way-fare:</b> 500kr |TBD|</p>
+      {accessAllPassengers.current && 
+      <>
+      <p><b>PASSENGERS:</b></p>
+       <section>
+          {accessAllPassengers.current.map((user: User, index: number) => {
+            return(
+            <div key={index}>
+            <li>{user.name}</li>
+            <button>Accept C.</button>
+            <button>Decline C.</button>
+            </div>
+            )
+          })}
+       </section>
+       </>
+      } 
 
       <button onClick={handleDeleteRoute}>DELETE OFFER</button>
     </article>

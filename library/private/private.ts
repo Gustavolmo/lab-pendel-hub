@@ -186,7 +186,6 @@ export const deleteRoute = async (uniqueId: string) => {
   const result = await rideCollection.deleteOne({
     _id: new ObjectId(uniqueId),
   });
-  console.log(result);
 };
 
 // leaveAllJoinedRides
@@ -217,14 +216,14 @@ export const deleteAllRoute = async (userEmail: string | undefined | null) => {
     .collection(collectionNameUsers);
   const userData = await userCollection.findOne({ email: userEmail });
 
-  const userId = String(userData?._id)
+  const userId = String(userData?._id);
 
   const rideCollection = client
     .db(databaseName)
     .collection(collectionNameRides);
-  
-    await rideCollection.deleteMany({driverId: userId});
-    await rideCollection.deleteMany({requestorId: userId});
+
+  await rideCollection.deleteMany({ driverId: userId });
+  await rideCollection.deleteMany({ requestorId: userId });
 };
 
 // Delete user
@@ -233,5 +232,22 @@ export const deleteUser = async (userEmail: string | undefined | null) => {
     .db(databaseName)
     .collection(collectionNameUsers);
   await userCollection.deleteOne({ email: userEmail });
-}
+};
 
+//get all passengers
+export const getAllPassengers = async (uniqueId: string) => {
+  const rideCollection = client
+    .db(databaseName)
+    .collection(collectionNameRides);
+  const result = await rideCollection.findOne({
+    _id: new ObjectId(uniqueId),
+  });
+
+  const paxArray = (result?.passengers).map((id: string) => new ObjectId(id));
+  const userCollection = client
+    .db(databaseName)
+    .collection(collectionNameUsers);
+
+  const paxNames = await userCollection.find({ _id: { $in: paxArray } }).toArray();
+  return JSON.stringify(paxNames)
+};

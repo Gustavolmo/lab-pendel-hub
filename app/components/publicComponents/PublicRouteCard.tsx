@@ -2,20 +2,19 @@ import { addPassengerToRoute } from '@/library/private/private';
 import { Ride } from '@/library/types/types';
 import { useSession } from 'next-auth/react';
 
-export default function PublicRouteCard({ route }: { route: Ride }) {
-const { data: session, status } = useSession();
-const isAuthenticated = session !== null && status === 'authenticated';
+export default function PublicRouteCard({ route, click, setClick }: any) {
+  const { data: session, status } = useSession();
+  const isAuthenticated = session !== null && status === 'authenticated';
 
-const handleJoinRoute = () => {
-  if (isAuthenticated) {
-    console.log('outch!!')
-    addPassengerToRoute(session?.user?.email, String(route._id))
-  } else {
-    console.log('NOT AUTHORIZED')
-  }
-}
-
-
+  const handleJoinRoute = () => {
+    if (isAuthenticated) {
+      setClick(!click)
+      console.log('outch!!');
+      addPassengerToRoute(session?.user?.email, String(route._id));
+    } else {
+      console.log('NOT AUTHORIZED');
+    }
+  };
 
   return (
     <div>
@@ -41,11 +40,15 @@ const handleJoinRoute = () => {
         </p>
 
         <p>
-          <b>Rating:</b> 5/5|TBD| <b>Seating:</b> {route.capacity} |TBD|{' '}
-          <b>One-way-fare:</b> 500kr |TBD|
+          <b>Seating:</b> {route.capacity} / <b>Taken:</b>{' '}
+          {route.passengers.length}
         </p>
 
-        <button onClick={handleJoinRoute}>Join</button>
+        {route.capacity == route.passengers.length ? (
+          <b>FULL</b>
+        ) : (
+          <button onClick={handleJoinRoute}>Join</button>
+        )}
       </article>
     </div>
   );

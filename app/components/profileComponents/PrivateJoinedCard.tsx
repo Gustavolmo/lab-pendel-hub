@@ -23,7 +23,7 @@ export default function PrivateJoinedCard({ route, setClick, click}: any) {
 
       <p><b>Frequency:</b> {route.frequency}</p>
 
-      <p><b>Rating:</b> 5/5|TBD| <b>Seating:</b> {route.capacity} |TBD|  <b>One-way-fare:</b> 500kr |TBD|</p>
+      <p><b>Status:</b> Pending | Accepted | Declined </p>
 
       <button onClick={leaveHandleres}>LEAVE</button>
       

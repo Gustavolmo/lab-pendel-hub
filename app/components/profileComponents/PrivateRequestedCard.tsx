@@ -21,7 +21,7 @@ export default function PrivateRequestCard({ route, setClick, click}: any) {
 
       <p><b>Frequency:</b> {route.frequency}</p>
 
-      <p><b>Rating:</b> 5/5|TBD| <b>Seating:</b> {route.capacity} |TBD|  <b>One-way-fare:</b> 500kr |TBD|</p>
+      <p><b>Seating:</b> {route.capacity} </p>
 
       <button onClick={handleDeleteRoute}>DELETE REQUEST</button>
     </article>

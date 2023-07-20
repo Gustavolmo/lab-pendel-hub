@@ -11,6 +11,7 @@ export default function PublicAvailableRoutes() {
   const { data: session, status } = useSession();
   const accessUserRoute = useRef([]);
   const [inProcess, setInProcess] = useState(false);
+  const [click, setClick] = useState(false)
 
   useEffect(() => {
     const handleGetUserRoute = async () => {
@@ -24,7 +25,7 @@ export default function PublicAvailableRoutes() {
       setInProcess(false);
     };
     handleGetUserRoute();
-  }, []);
+  }, [click]);
 
   if (accessUserRoute.current) {
     return (
@@ -34,7 +35,7 @@ export default function PublicAvailableRoutes() {
           {accessUserRoute.current.map((route: Ride, index: number) => {
             return (
               <article key={`${index}_${route.createdDate}`}>
-                <PublicRouteCard route={route} />
+                <PublicRouteCard route={route} click={click} setClick={setClick} />
               </article>
             );
           })}

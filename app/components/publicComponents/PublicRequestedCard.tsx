@@ -1,4 +1,5 @@
 import { Ride } from '@/library/types/types';
+import Link from 'next/link';
 import React from 'react';
 
 export default function PublicRequestedCard({ route }: { route: Ride }) {
@@ -26,11 +27,12 @@ export default function PublicRequestedCard({ route }: { route: Ride }) {
         </p>
 
         <p>
-          <b>Rating:</b> 5/5|TBD| <b>Seating:</b> {route.capacity} |TBD|{' '}
-          <b>One-way-fare:</b> 500kr |TBD|
+          <b>Seating:</b> {route.capacity}
         </p>
 
-        <button>Offer</button>
+        <Link href={'/profile'}>
+          <button>Offer</button>
+        </Link>
       </article>
     </div>
   );
