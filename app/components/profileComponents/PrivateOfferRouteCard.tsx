@@ -22,11 +22,6 @@ export default function PrivateOfferRouteCard({ route, setClick, click}: any) {
     handleAsync();
   }, []);
 
-  if(accessAllPassengers.current) {
-    console.log(accessAllPassengers.current) // REMOVE LATER
-  }
-
-
   const handleDeleteRoute = () => {
     deleteRoute(String(route._id))
     setClick(!click)

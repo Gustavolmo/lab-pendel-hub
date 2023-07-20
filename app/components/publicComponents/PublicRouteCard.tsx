@@ -9,7 +9,6 @@ export default function PublicRouteCard({ route, click, setClick }: any) {
   const handleJoinRoute = () => {
     if (isAuthenticated) {
       setClick(!click)
-      console.log('outch!!');
       addPassengerToRoute(session?.user?.email, String(route._id));
     } else {
       console.log('NOT AUTHORIZED');
@@ -44,7 +43,7 @@ export default function PublicRouteCard({ route, click, setClick }: any) {
           {route.passengers.length}
         </p>
 
-        {route.capacity == route.passengers.length ? (
+        {route.capacity <= route.passengers.length ? (
           <b>FULL</b>
         ) : (
           <button onClick={handleJoinRoute}>Join</button>

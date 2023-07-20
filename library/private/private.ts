@@ -131,8 +131,14 @@ export const addPassengerToRoute = async (
     .db(databaseName)
     .collection(collectionNameRides);
 
+  const ride = await rideCollection.findOne({ _id: new ObjectId(uniqueId) });
+
+  if (ride?.capacity <= ride?.passengers.length) {
+    return; // ADDED CONDITIONAL
+  }
+
   await rideCollection.updateOne(
-    { _id: new ObjectId(uniqueId) }, // ROUTEID INSTEAD
+    { _id: new ObjectId(uniqueId) },
     { $push: { passengers: newPaxId } }
   );
 };
@@ -248,6 +254,8 @@ export const getAllPassengers = async (uniqueId: string) => {
     .db(databaseName)
     .collection(collectionNameUsers);
 
-  const paxNames = await userCollection.find({ _id: { $in: paxArray } }).toArray();
-  return JSON.stringify(paxNames)
+  const paxNames = await userCollection
+    .find({ _id: { $in: paxArray } })
+    .toArray();
+  return JSON.stringify(paxNames);
 };
