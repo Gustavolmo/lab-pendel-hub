@@ -9,7 +9,7 @@ const isAuthenticated = session !== null && status === 'authenticated';
 const handleJoinRoute = () => {
   if (isAuthenticated) {
     console.log('outch!!')
-    addPassengerToRoute(session?.user?.email, route.driverId)
+    addPassengerToRoute(session?.user?.email, String(route._id))
   } else {
     console.log('NOT AUTHORIZED')
   }

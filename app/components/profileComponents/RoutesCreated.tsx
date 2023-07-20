@@ -1,14 +1,16 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import PrivateRouteCard from './PrivateRouteCard';
 import { useSession } from 'next-auth/react';
 import { getUserOfferedRoutes } from '@/library/private/private';
 import { Ride } from '@/library/types/types';
+import PrivateOfferRouteCard from './PrivateOfferRouteCard';
 
 export default function routesCreated() {
   const { data: session, status } = useSession();
   const accessUserRoute = useRef([]);
   const [inProcess, setInProcess] = useState(false);
+  const [click, setClick] = useState(false);
+
 
   useEffect(() => {
     const handleGetUserRoute = async () => {
@@ -22,7 +24,7 @@ export default function routesCreated() {
       setInProcess(false);
     };
     handleGetUserRoute();
-  }, []);
+  }, [click]);
 
   if (accessUserRoute.current) {
     return (
@@ -32,7 +34,11 @@ export default function routesCreated() {
           {accessUserRoute.current.map((route: Ride, index: number) => {
             return (
               <article key={`${index}_${route.createdDate}`}>
-                <PrivateRouteCard route={route} />
+                <PrivateOfferRouteCard 
+                route={route}
+                setClick={setClick}
+                click={click}
+                />
               </article>
             );
           })}

@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { signOut, useSession } from 'next-auth/react';
+import { deleteAllRoute, deleteUser, leaveAllJoinedRide } from '@/library/private/private';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -20,12 +22,13 @@ export default function DeleteAccountModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const { data: session, status } = useSession();
 
   const handleDeleteUser = () => {
-    // leaveAllJoinedRides
-    // DeleteOfferedRoute
-    // DeleteRequestedRoute
-    // Redirect to homepage
+    leaveAllJoinedRide(session?.user?.email)
+    deleteAllRoute(session?.user?.email)
+    deleteUser(session?.user?.email)
+    signOut()
   };
 
   return (
@@ -44,8 +47,8 @@ export default function DeleteAccountModal() {
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             Are you sure you want delete your account?
           </Typography>
-          <button>Cancel</button>
-          <button>Delete</button>
+          <button onClick={handleClose}>Cancel</button>
+          <button onClick={handleDeleteUser}>Delete</button>
         </Box>
       </Modal>
     </div>

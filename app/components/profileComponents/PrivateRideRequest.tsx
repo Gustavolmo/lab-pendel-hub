@@ -3,12 +3,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { getUserRequestedRoutes } from '@/library/private/private';
 import { Ride } from '@/library/types/types';
-import PrivateOfferedCard from './PrivateOfferedCard';
+import PrivateRequestedCard from './PrivateRequestedCard';
 
 export default function PrivateRideRequest() {
   const { data: session, status } = useSession();
   const accessUserRoute = useRef([]);
   const [inProcess, setInProcess] = useState(false);
+  const [click, setClick] = useState(false);
 
   useEffect(() => {
     const handleGetUserRoute = async () => {
@@ -22,7 +23,7 @@ export default function PrivateRideRequest() {
       setInProcess(false);
     };
     handleGetUserRoute();
-  }, []);
+  }, [click]);
 
   if (accessUserRoute.current) {
     return (
@@ -32,7 +33,11 @@ export default function PrivateRideRequest() {
           {accessUserRoute.current.map((route: Ride, index: number) => {
             return (
               <article key={`${index}_${route.createdDate}`}>
-                <PrivateOfferedCard route={route} />
+                <PrivateRequestedCard
+                route={route}
+                setClick={setClick}
+                click={click}
+                />
               </article>
             );
           })}

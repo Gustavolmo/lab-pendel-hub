@@ -119,7 +119,7 @@ export const getUserRequestedRoutes = async (
 //Post passenger to route
 export const addPassengerToRoute = async (
   sessionEmail: string | null | undefined,
-  driverId: string
+  uniqueId: string
 ) => {
   const userCollection = client
     .db(databaseName)
@@ -132,7 +132,7 @@ export const addPassengerToRoute = async (
     .collection(collectionNameRides);
 
   await rideCollection.updateOne(
-    { driverId: driverId },
+    { _id: new ObjectId(uniqueId) }, // ROUTEID INSTEAD
     { $push: { passengers: newPaxId } }
   );
 };
@@ -178,14 +178,60 @@ export const leaveJoinedRide = async (
   );
 };
 
-// DeleteOfferedRoute
+// Delete Route
 export const deleteRoute = async (uniqueId: string) => {
   const rideCollection = client
     .db(databaseName)
     .collection(collectionNameRides);
-  const result = await rideCollection.deleteOne({ _id: new ObjectId(uniqueId) });
-  console.log(result)
+  const result = await rideCollection.deleteOne({
+    _id: new ObjectId(uniqueId),
+  });
+  console.log(result);
 };
 
 // leaveAllJoinedRides
-// DeleteRequestedRoute
+export const leaveAllJoinedRide = async (
+  userEmail: string | null | undefined
+) => {
+  const userCollection = client
+    .db(databaseName)
+    .collection(collectionNameUsers);
+  const userData = await userCollection.findOne({ email: userEmail });
+
+  const passengerId = String(userData?._id);
+
+  const rideCollection = client
+    .db(databaseName)
+    .collection(collectionNameRides);
+
+  await rideCollection.updateMany(
+    { passengers: passengerId },
+    { $pull: { passengers: passengerId } } // THIS ERROR MAKES NO SENSE
+  );
+};
+
+// DeleteUser
+export const deleteAllRoute = async (userEmail: string | undefined | null) => {
+  const userCollection = client
+    .db(databaseName)
+    .collection(collectionNameUsers);
+  const userData = await userCollection.findOne({ email: userEmail });
+
+  const userId = String(userData?._id)
+
+  const rideCollection = client
+    .db(databaseName)
+    .collection(collectionNameRides);
+  
+    await rideCollection.deleteMany({driverId: userId});
+    await rideCollection.deleteMany({requestorId: userId});
+};
+
+// Delete user
+export const deleteUser = async (userEmail: string | undefined | null) => {
+  const userCollection = client
+    .db(databaseName)
+    .collection(collectionNameUsers);
+  await userCollection.deleteOne({ email: userEmail });
+}
+
