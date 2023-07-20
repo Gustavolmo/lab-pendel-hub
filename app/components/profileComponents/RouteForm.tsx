@@ -110,7 +110,7 @@ export default function routeForm() {
             value={formData.pointB}
           />
 
-          <label>Times</label>
+          <label>Available From</label>
           <input
             type="date"
             min="2023-01-01"
@@ -120,6 +120,7 @@ export default function routeForm() {
             onChange={handleChange}
             value={formData.availableFromDate}
           />
+          <label>Times</label>
           <input
             type="text"
             placeholder="departure time inboud"

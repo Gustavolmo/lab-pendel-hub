@@ -125,7 +125,7 @@ export const addPassengerToRoute = async (
     .collection(collectionNameUsers);
   const userData = await userCollection.findOne({ email: sessionEmail });
 
-  const newPaxId = userData?._id;
+  const newPaxId = String(userData?._id);
   const rideCollection = client
     .db(databaseName)
     .collection(collectionNameRides);
@@ -145,17 +145,14 @@ export const getRidesJoinedByUser = async (
     .collection(collectionNameUsers);
   const userData = await userCollection.findOne({ email: userEmail });
 
-  // WE ARE HERE!!!!! & RidesJoined.tsx
   const userId = String(userData?._id);
-  // const objUserId = new Object(userId) 
 
   const rideCollection = client
     .db(databaseName)
     .collection(collectionNameRides);
-  
-    const data = await rideCollection
-    // .find({ passengers:{ $in: [userId] } })
-    // .toArray();
-    // .aggregate([{$unwind:"$passengers"}, {$match:{userId}}])
-  console.log('-> route with pax id', data);
+
+  const data = await rideCollection.find({ passengers: userId }).toArray();
+  return JSON.stringify(data)
 };
+
+
