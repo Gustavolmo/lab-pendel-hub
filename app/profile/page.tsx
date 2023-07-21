@@ -9,6 +9,7 @@ import ProfileInfo from '../components/profileComponents/ProfileInfo';
 import PrivateRideRequest from '../components/profileComponents/PrivateRideRequest';
 import LoginButton from '../components/LoginButton';
 import UserImage from '../components/UserImage';
+import PassengerCount from '../components/profileComponents/PassengerCount';
 
 export default function page() {
   const { data: session, status } = useSession();
@@ -23,6 +24,7 @@ export default function page() {
     return (
       <>
         <nav className="navbar">
+          <PassengerCount />
           <Link href={'http://localhost:3000'}>
             <button className=" text-blakc border p-1 px-4 rounded button">
               Home

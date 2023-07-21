@@ -10,7 +10,6 @@ export default function PublicRouteCard({ route, click, setClick }: any) {
     if (isAuthenticated) {
       setClick(!click);
       addPassengerToRoute(session?.user?.email, String(route._id));
-      // Update count ++ (add/remove)
     } else {
       console.log('NOT AUTHORIZED');
     }

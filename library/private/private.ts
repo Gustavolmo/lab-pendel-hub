@@ -261,4 +261,21 @@ export const getAllPassengers = async (uniqueId: string) => {
 };
 
 //update User Pax Count
+export const getAllUserPax = async (userEmail: string | undefined | null) => {
+  const userCollection = client
+    .db(databaseName)
+    .collection(collectionNameUsers);
+  const userData = await userCollection.findOne({ email: userEmail });
 
+  const userId = String(userData?._id);
+
+  const rideCollection = client.db(databaseName).collection(collectionNameRides)
+  const allDrivingRoutes = await rideCollection.find({driverId: userId}).toArray()
+
+  let paxCount = 0;
+  allDrivingRoutes.forEach(route => {
+    paxCount += route.passengers.length
+  })
+
+  return paxCount
+};

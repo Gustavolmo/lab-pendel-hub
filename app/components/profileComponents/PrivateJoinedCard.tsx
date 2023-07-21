@@ -10,7 +10,6 @@ export default function PrivateJoinedCard({ route, setClick, click}: any) {
 
   const leaveHandleres = () => {
     leaveJoinedRide(session?.user?.email, route._id)
-    // Update count -- (add/remove)
     setClick(!click)
   }
   

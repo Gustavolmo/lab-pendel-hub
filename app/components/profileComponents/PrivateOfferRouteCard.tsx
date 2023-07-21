@@ -29,7 +29,6 @@ export default function PrivateOfferRouteCard({ route, setClick, click}: any) {
 
   const handleDeclinePax = (paxEmail: string | null | undefined , rideId: string) => {
     leaveJoinedRide(paxEmail, rideId)
-    // Update Count -- (add/remove)
     setClick(!click)
   }
 
