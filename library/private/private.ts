@@ -249,15 +249,17 @@ export const getAllPassengers = async (uniqueId: string) => {
     _id: new ObjectId(uniqueId),
   });
 
-  const paxArray = (result?.passengers).map((id: string) => new ObjectId(id));
-  const userCollection = client
-    .db(databaseName)
-    .collection(collectionNameUsers);
-
-  const paxNames = await userCollection
-    .find({ _id: { $in: paxArray } })
-    .toArray();
-  return JSON.stringify(paxNames);
+  if(result) {
+    const paxArray = (result?.passengers).map((id: string) => new ObjectId(id));
+    const userCollection = client
+      .db(databaseName)
+      .collection(collectionNameUsers);
+  
+    const paxNames = await userCollection
+      .find({ _id: { $in: paxArray } })
+      .toArray();
+    return JSON.stringify(paxNames);
+  }
 };
 
 //update User Pax Count

@@ -10,7 +10,11 @@ export default function routesCreated() {
   const accessUserRoute = useRef([]);
   const [inProcess, setInProcess] = useState(false);
   const [click, setClick] = useState(false);
+  const [call, setCall] = useState(false)
 
+  setInterval(() => {
+    setCall(!call)
+  }, 5000)
 
   useEffect(() => {
     const handleGetUserRoute = async () => {
@@ -24,7 +28,7 @@ export default function routesCreated() {
       setInProcess(false);
     };
     handleGetUserRoute();
-  }, [click]);
+  }, [click, call]);
 
   if (accessUserRoute.current) {
     return (

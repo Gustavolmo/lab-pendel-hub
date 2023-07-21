@@ -13,6 +13,11 @@ export default function ridesJoined() {
   const accessUserRoute = useRef([]);
   const [inProcess, setInProcess] = useState(false);
   const [click, setClick] = useState(false);
+  const [call, setCall] = useState(false)
+
+  setInterval(() => {
+    setCall(!call)
+  }, 5000)
 
   useEffect(() => {
     const handleGetUserRoute = async () => {
@@ -26,7 +31,7 @@ export default function ridesJoined() {
       setInProcess(false);
     };
     handleGetUserRoute();
-  }, [click]);
+  }, [click, call]);
 
   if (accessUserRoute.current) {
     return (

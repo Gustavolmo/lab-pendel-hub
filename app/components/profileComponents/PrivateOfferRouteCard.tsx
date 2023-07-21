@@ -15,8 +15,10 @@ export default function PrivateOfferRouteCard({ route, setClick, click}: any) {
       }
       setInProcess(true);
       const routeFromDb = await getAllPassengers(route._id);
-      const parsedRoute = JSON.parse(routeFromDb);
-      accessAllPassengers.current = parsedRoute;
+      if (routeFromDb){
+        const parsedRoute = JSON.parse(routeFromDb);
+        accessAllPassengers.current = parsedRoute;
+      }
       setInProcess(false);
     };
     handleAsync();

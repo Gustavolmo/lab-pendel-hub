@@ -12,7 +12,12 @@ export default function PublicAvailableRoutes() {
   const accessUserRoute = useRef([]);
   const [inProcess, setInProcess] = useState(false);
   const [click, setClick] = useState(false)
+  const [call, setCall] = useState(false)
 
+  setInterval(() => {
+    setCall(!call)
+  }, 5000)
+  
   useEffect(() => {
     const handleGetUserRoute = async () => {
       if (inProcess) {
@@ -25,7 +30,7 @@ export default function PublicAvailableRoutes() {
       setInProcess(false);
     };
     handleGetUserRoute();
-  }, [click]);
+  }, [click, call]);
 
   if (accessUserRoute.current) {
     return (
