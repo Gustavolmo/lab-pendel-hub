@@ -28,6 +28,7 @@ export default function routeForm() {
     carDescription: '',
     fare: 0,
     isRequest: isChecked,
+    paxCount: 0,
   });
 
   const checkBoxChange = () => {
@@ -69,6 +70,7 @@ export default function routeForm() {
       carDescription: '',
       fare: 0,
       isRequest: isChecked,
+      paxCount: 0,
     });
 
     setIsChecked(false)

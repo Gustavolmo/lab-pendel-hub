@@ -1,6 +1,5 @@
 'use server'
 import { client, runMongoDb } from '../mongoConnect';
-import { Ride, User } from '../types/types';
 
 runMongoDb()
 
