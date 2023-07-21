@@ -46,7 +46,7 @@ export default function HomePage() {
 
   return (
     <>
-      <h1>HOME PAGE</h1>
+      <h1>PENDEL HUB! be a bus</h1>
 
       <section className="profile-main__selections">
 

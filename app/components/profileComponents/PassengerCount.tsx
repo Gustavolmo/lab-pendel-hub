@@ -11,7 +11,7 @@ export default function PassengerCount() {
 
   setInterval(() => {
     setCall(!call);
-  }, 2000);
+  }, 5000);
 
   useEffect(() => {
     const asyncByPass = async () => {
@@ -21,7 +21,7 @@ export default function PassengerCount() {
       setInProcess(true);
       if (session) {
         const paxCount = await getAllUserPax(session?.user?.email);
-        if (accessPaxCount.current && paxCount > accessPaxCount.current) {
+        if (paxCount > accessPaxCount.current) {
           alert('You got a new passenger');
         }
         accessPaxCount.current = paxCount;
