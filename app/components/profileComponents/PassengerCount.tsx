@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { getAllUserPax } from '@/library/private/private';
 import { useSession } from 'next-auth/react';
 import React, { useEffect, useRef, useState } from 'react';
@@ -6,12 +6,12 @@ import React, { useEffect, useRef, useState } from 'react';
 export default function PassengerCount() {
   const { data: session, status } = useSession();
   const [inProcess, setInProcess] = useState(false);
-  const [call, setCall] = useState(false)
+  const [call, setCall] = useState(false);
   const accessPaxCount = useRef<number>();
 
   setInterval(() => {
-    setCall(!call)
-  }, 2000)
+    setCall(!call);
+  }, 2000);
 
   useEffect(() => {
     const asyncByPass = async () => {
@@ -22,7 +22,7 @@ export default function PassengerCount() {
       if (session) {
         const paxCount = await getAllUserPax(session?.user?.email);
         if (accessPaxCount.current && paxCount > accessPaxCount.current) {
-          alert('You got a new passenger')
+          alert('You got a new passenger');
         }
         accessPaxCount.current = paxCount;
       }
@@ -32,6 +32,12 @@ export default function PassengerCount() {
   }, [call]);
 
   if (accessPaxCount.current && session) {
-    return <div>Total Passengers: {accessPaxCount.current}</div>;
+    return (
+      <>
+        <div className="total-pax">
+          Total Passengers: {accessPaxCount.current}
+        </div>
+      </>
+    );
   }
 }
