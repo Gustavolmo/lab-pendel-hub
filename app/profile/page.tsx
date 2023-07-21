@@ -8,6 +8,7 @@ import RoutesCreated from '../components/profileComponents/RoutesCreated';
 import ProfileInfo from '../components/profileComponents/ProfileInfo';
 import PrivateRideRequest from '../components/profileComponents/PrivateRideRequest';
 import LoginButton from '../components/LoginButton';
+import UserImage from '../components/UserImage';
 
 export default function page() {
   const { data: session, status } = useSession();
@@ -27,6 +28,7 @@ export default function page() {
               Home
             </button>
           </Link>
+          <UserImage user={session?.user} />
         </nav>
 
         <main className="profile-main">

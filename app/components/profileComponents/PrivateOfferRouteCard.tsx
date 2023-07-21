@@ -1,5 +1,5 @@
 'use client';
-import { deleteRoute, getAllPassengers } from '@/library/private/private';
+import { deleteRoute, getAllPassengers, leaveJoinedRide } from '@/library/private/private';
 import { User } from '@/library/types/types';
 import { useSession } from 'next-auth/react';
 import React, { useEffect, useRef, useState } from 'react';
@@ -20,10 +20,16 @@ export default function PrivateOfferRouteCard({ route, setClick, click}: any) {
       setInProcess(false);
     };
     handleAsync();
-  }, []);
+  }, [click]);
 
   const handleDeleteRoute = () => {
     deleteRoute(String(route._id))
+    setClick(!click)
+  }
+
+  const handleDeclinePax = (paxEmail: string | null | undefined , rideId: string) => {
+    leaveJoinedRide(paxEmail, rideId)
+    // Update Count -- (add/remove)
     setClick(!click)
   }
 
@@ -46,8 +52,7 @@ export default function PrivateOfferRouteCard({ route, setClick, click}: any) {
             return(
             <div key={index}>
             <li>{user.name}</li>
-            <button>Accept C.</button>
-            <button>Decline C.</button>
+            <button onClick={() => handleDeclinePax(user.email, route._id)}>Decline Passenger</button>
             </div>
             )
           })}

@@ -5,8 +5,6 @@ export default function UserImage({ user } : { user: DefaultSession['user'] }) {
   return (
     <div>
       <img src={user?.image?.toString()} alt="" />
-      {/* <p>Hello {user?.name}</p>
-      <p>Logged in with {user?.email}</p> */}
     </div>
   )
 }

@@ -92,3 +92,8 @@ textarea {
     0px 59px 36px rgba(0, 0, 0, 0.05), 0px 26px 26px rgba(0, 0, 0, 0.09),
     0px 7px 15px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
 }
+
+.--acceptedPax {
+  background-color: rgb(84, 133, 0);
+  color: white;
+}

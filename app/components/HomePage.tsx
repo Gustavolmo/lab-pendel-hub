@@ -46,7 +46,7 @@ export default function HomePage() {
 
   return (
     <>
-      <h1>LANDING PAGE</h1>
+      <h1>HOME PAGE</h1>
 
       <section className="profile-main__selections">
 

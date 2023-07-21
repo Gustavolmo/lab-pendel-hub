@@ -30,7 +30,7 @@ export default function PublicAvailableRoutes() {
   if (accessUserRoute.current) {
     return (
       <>
-        <h2>MY CREATED ROUTES</h2>
+        <h2>ROUTES AVAILABLE</h2>
         <section>
           {accessUserRoute.current.map((route: Ride, index: number) => {
             return (

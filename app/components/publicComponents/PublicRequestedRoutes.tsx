@@ -26,7 +26,7 @@ export default function PublicRequestedRoutes() {
   if (accessUserRoute.current) {
     return (
       <>
-        <h2>MY CREATED ROUTES</h2>
+        <h2>REQUESTS</h2>
         <section>
           {accessUserRoute.current.map((route: Ride, index: number) => {
             return (
