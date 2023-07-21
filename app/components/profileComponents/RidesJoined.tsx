@@ -17,7 +17,7 @@ export default function ridesJoined() {
 
   setInterval(() => {
     setCall(!call)
-  }, 5000)
+  }, 10000)
 
   useEffect(() => {
     const handleGetUserRoute = async () => {

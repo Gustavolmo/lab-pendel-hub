@@ -14,7 +14,7 @@ export default function routesCreated() {
 
   setInterval(() => {
     setCall(!call)
-  }, 5000)
+  }, 10000)
 
   useEffect(() => {
     const handleGetUserRoute = async () => {

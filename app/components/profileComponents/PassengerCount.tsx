@@ -11,7 +11,7 @@ export default function PassengerCount() {
 
   setInterval(() => {
     setCall(!call);
-  }, 5000);
+  }, 2000);
 
   useEffect(() => {
     const asyncByPass = async () => {

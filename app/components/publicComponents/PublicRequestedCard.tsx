@@ -22,6 +22,9 @@ export default function PublicRequestedCard({ route }: { route: Ride }) {
           <b>Travel Time:</b> {route.tripTime}
         </p>
 
+        <p>About: {route.message}</p>
+        <p>Vehicle: {route.carDescription}</p>
+
         <p>
           <b>Frequency:</b> {route.frequency}
         </p>
