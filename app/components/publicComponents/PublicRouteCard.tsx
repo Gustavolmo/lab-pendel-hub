@@ -1,5 +1,4 @@
 import { addPassengerToRoute } from '@/library/private/private';
-import { Ride } from '@/library/types/types';
 import { useSession } from 'next-auth/react';
 
 export default function PublicRouteCard({ route, click, setClick }: any) {

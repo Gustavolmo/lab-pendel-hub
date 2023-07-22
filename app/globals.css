@@ -32,7 +32,7 @@ html, body {
   padding: 12px;
   border-radius: 6px;
   width: 360px;
-  height: 360px;
+  min-height: 360px;
 }
 
 button,

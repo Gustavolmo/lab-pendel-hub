@@ -1,6 +1,5 @@
 'use client';
 import { leaveJoinedRide } from '@/library/private/private';
-import { Ride } from '@/library/types/types';
 import { useSession } from 'next-auth/react';
 import React from 'react';
 // import { Ride } from '@/library/types/types'

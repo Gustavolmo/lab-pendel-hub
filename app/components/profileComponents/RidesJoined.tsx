@@ -3,8 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { Ride } from '@/library/types/types';
 import {
-  getRidesJoinedByUser,
-  leaveJoinedRide,
+  getRidesJoinedByUser
 } from '@/library/private/private';
 import PrivateJoinedCard from './PrivateJoinedCard';
 

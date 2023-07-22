@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import { useSession } from 'next-auth/react';
 import { Ride } from '@/library/types/types';
 import { getAllRequestedRoutes } from '@/library/public/public';
 import PublicRequestedCard from './PublicRequestedCard';

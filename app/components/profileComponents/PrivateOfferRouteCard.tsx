@@ -5,7 +5,6 @@ import {
   leaveJoinedRide,
 } from '@/library/private/private';
 import { User } from '@/library/types/types';
-import { useSession } from 'next-auth/react';
 import React, { useEffect, useRef, useState } from 'react';
 
 export default function PrivateOfferRouteCard({ route, setClick, click }: any) {

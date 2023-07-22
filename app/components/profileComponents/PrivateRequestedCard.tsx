@@ -1,6 +1,5 @@
 'use client';
 import { deleteRoute } from '@/library/private/private';
-import { Ride } from '@/library/types/types';
 import React from 'react';
 // import { Ride } from '@/library/types/types'
 

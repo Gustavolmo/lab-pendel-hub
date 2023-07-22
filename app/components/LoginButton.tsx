@@ -2,7 +2,6 @@
 import { useSession, signIn, signOut } from 'next-auth/react';
 import Link from 'next/link';
 import UserImage from './UserImage';
-import PassengerCount from './profileComponents/PassengerCount';
 
 export default function LoginButton() {
   const { data: session } = useSession(); // THIS IS SIMILAR TO USE CONTEXT
