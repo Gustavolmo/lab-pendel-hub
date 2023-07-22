@@ -26,6 +26,6 @@ export type Ride = {
   message: string;
   carDescription: string;
   fare?: number;
-  isRequest?: boolean;
+  isRequest: boolean;
   paxCount: number;
 };

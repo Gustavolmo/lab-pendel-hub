@@ -9,27 +9,44 @@ export default function PassengerCount() {
   const [call, setCall] = useState(false);
   const accessPaxCount = useRef<number>();
 
-  setInterval(() => {
-    setCall(!call);
-  }, 2000);
+  useEffect(() => {
+    setTimeout(()=>{
+      const asyncByPass = async () => {
+        if (inProcess) {
+          return;
+        }
+        setInProcess(true);
+        if (session) {
+          const paxCount = await getAllUserPax(session?.user?.email);
+          if (paxCount > accessPaxCount.current) {
+            alert('You got a new passenger');
+          }
+          accessPaxCount.current = paxCount;
+        }
+        setInProcess(false);
+        setCall(!call)
+      };
+      asyncByPass();
+    }, 4000)
+  }, [call]);
 
   useEffect(() => {
-    const asyncByPass = async () => {
-      if (inProcess) {
-        return;
-      }
-      setInProcess(true);
-      if (session) {
-        const paxCount = await getAllUserPax(session?.user?.email);
-        if (paxCount > accessPaxCount.current) {
-          alert('You got a new passenger');
+      const asyncByPass = async () => {
+        if (inProcess) {
+          return;
         }
-        accessPaxCount.current = paxCount;
-      }
-      setInProcess(false);
-    };
-    asyncByPass();
-  }, [call]);
+        setInProcess(true);
+        if (session) {
+          const paxCount = await getAllUserPax(session?.user?.email);
+          if (paxCount > accessPaxCount.current) {
+            alert('You got a new passenger');
+          }
+          accessPaxCount.current = paxCount;
+        }
+        setInProcess(false);
+      };
+      asyncByPass();
+  }, []);
 
   if (accessPaxCount.current && session) {
     return (

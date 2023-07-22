@@ -15,23 +15,39 @@ export default function ridesJoined() {
   const [click, setClick] = useState(false);
   const [call, setCall] = useState(false)
 
-  setInterval(() => {
-    setCall(!call)
-  }, 10000)
+  useEffect(() => {
+    setTimeout(() => {
+      const asyncByPass = async () => {
+        if (inProcess) {
+          return;
+        }
+        setInProcess(true);
+        const routeFromDb = await getRidesJoinedByUser(session?.user?.email);
+        const parsedRoute = JSON.parse(routeFromDb);
+        accessUserRoute.current = parsedRoute;
+        setInProcess(false);
+        setCall(!call)
+      };
+      asyncByPass();
+    }, 4000)
+  }, [click, call]);
+
 
   useEffect(() => {
-    const handleGetUserRoute = async () => {
-      if (inProcess) {
-        return;
-      }
-      setInProcess(true);
-      const routeFromDb = await getRidesJoinedByUser(session?.user?.email);
-      const parsedRoute = JSON.parse(routeFromDb);
-      accessUserRoute.current = parsedRoute;
-      setInProcess(false);
-    };
-    handleGetUserRoute();
-  }, [click, call]);
+      const asyncByPass = async () => {
+        if (inProcess) {
+          return;
+        }
+        setInProcess(true);
+        const routeFromDb = await getRidesJoinedByUser(session?.user?.email);
+        const parsedRoute = JSON.parse(routeFromDb);
+        accessUserRoute.current = parsedRoute;
+        setInProcess(false);
+        setCall(!call)
+      };
+      asyncByPass();
+  }, []);
+
 
   if (accessUserRoute.current) {
     return (
