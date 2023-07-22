@@ -49,7 +49,7 @@ export default function PassengerCount() {
     return (
       <>
         <div className="total-pax">
-          Total Passengers: {accessPaxCount.current}
+        &#x1F464; {accessPaxCount.current}
         </div>
       </>
     );

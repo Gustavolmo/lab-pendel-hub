@@ -52,11 +52,11 @@ export default function ridesJoined() {
   if (accessUserRoute.current) {
     return (
       <>
-        <h2>MY JOINED ROUTES</h2>
-        <section>
+
+
           {accessUserRoute.current.map((route: Ride, index: number) => {
             return (
-              <article key={`${index}_${route.createdDate}`}>
+              <article className="info-card" key={`${index}_${route.createdDate}`}>
                 <PrivateJoinedCard
                   route={route}
                   setClick={setClick}
@@ -65,7 +65,7 @@ export default function ridesJoined() {
               </article>
             );
           })}
-        </section>
+
       </>
     );
   }

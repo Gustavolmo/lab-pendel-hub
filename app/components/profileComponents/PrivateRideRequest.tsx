@@ -28,11 +28,11 @@ export default function PrivateRideRequest() {
   if (accessUserRoute.current) {
     return (
       <>
-        <h2>MY REQUESTED ROUTES</h2>
-        <section>
+
+
           {accessUserRoute.current.map((route: Ride, index: number) => {
             return (
-              <article key={`${index}_${route.createdDate}`}>
+              <article className="info-card" key={`${index}_${route.createdDate}`}>
                 <PrivateRequestedCard
                 route={route}
                 setClick={setClick}
@@ -41,7 +41,7 @@ export default function PrivateRideRequest() {
               </article>
             );
           })}
-        </section>
+
       </>
     );
   }

@@ -26,16 +26,13 @@ export default function PublicRequestedRoutes() {
   if (accessUserRoute.current) {
     return (
       <>
-        <h2>REQUESTS</h2>
-        <section>
           {accessUserRoute.current.map((route: Ride, index: number) => {
             return (
-              <article key={`${index}_${route.createdDate}`}>
+              <article  className="info-card" key={`${index}_${route.createdDate}`}>
                 <PublicRequestedCard route={route} />
               </article>
             );
           })}
-        </section>
       </>
     );
   }

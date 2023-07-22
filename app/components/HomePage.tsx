@@ -9,7 +9,7 @@ import PublicRequestedRoutes from './publicComponents/PublicRequestedRoutes';
 export default function HomePage() {
   const { data: session, status } = useSession();
   const [inProcess, setInProcess] = useState(false);
-  const [selection, setSelection] = useState('Available Routes'); // Routes Being Requested
+  const [selection, setSelection] = useState('Routes'); // Routes Being Requested
 
   const handleLogIn = async (userData: User) => {
     const userFromDb = await getUserByEmail(userData.email);
@@ -48,13 +48,13 @@ export default function HomePage() {
     <>
       <h1>PENDEL HUB! be a bus</h1>
 
-      <section className="">
+      <section className="landing-page-main__section">
 
       <div className=''>
         <button
           onClick={(e: any) => handleSelection(e.target.textContent)}
           className={
-            selection === 'Available Routes'
+            selection === 'Routes'
               ? 'standard-button--selected'
               : 'standard-button'
           }
@@ -74,8 +74,8 @@ export default function HomePage() {
         </button>
         </div>
 
-        <section className=''>
-        {selection === 'Available Routes' && <PublicAvailableRoutes />}
+        <section className='public-cards'>
+        {selection === 'Routes' && <PublicAvailableRoutes />}
         {selection === 'Requests' && <PublicRequestedRoutes />}
         </section>
 

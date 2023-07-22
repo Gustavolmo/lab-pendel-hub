@@ -15,7 +15,7 @@ font-family: 'Baskervville', serif;
 
 * {
   font-family: 'Baskervville', serif;
-  outline: dashed red .5px;
+  /* outline: dashed red .5px; */
 }
 
 html, body {
@@ -27,10 +27,12 @@ html, body {
 
 .info-card {
   background-color: #1f1f20;
-  color: white;
-  margin: 32px 0 0 0;
+  color: #FEF4E4;
+  margin: 32px 8px 0 8px;
   padding: 12px;
   border-radius: 6px;
+  width: 360px;
+  height: 360px;
 }
 
 button,
@@ -60,6 +62,24 @@ button:hover,
 }
 
 .landing-page-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-page-main__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.public-cards {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .landing-page-nav {
@@ -94,7 +114,11 @@ img,
 }
 
 .total-pax {
-  color: #FEF4E4;
+  position: absolute;
+  top: 50px;
+  right: 16px;
+  /* background-color: #FD5B35; */
+  color: #FD5B35;
   font-size: 12px;
 }
 
@@ -103,4 +127,10 @@ img,
   align-items: center;
   padding: 0;
   margin: 0;
+}
+
+.profile-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

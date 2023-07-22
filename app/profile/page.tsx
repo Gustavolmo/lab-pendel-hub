@@ -26,13 +26,9 @@ export default function page() {
     return (
       <>
         <nav className="landing-page-nav">
-        <Image
-        src={logo}
-        alt="LOGO"
-        className='logo-image'
-        />
-        <PassengerCount />
-          <div className='landing-page-nav__contents'>
+          <Image src={logo} alt="LOGO" className="logo-image" />
+          <PassengerCount />
+          <div className="landing-page-nav__contents">
             <Link href={'http://localhost:3000'}>
               <button className="standard-button">Home</button>
             </Link>
@@ -40,7 +36,7 @@ export default function page() {
           </div>
         </nav>
 
-        <main className="">
+        <main className="profile-main">
           <h1>MY PAGES</h1>
           <section className="">
             <button
@@ -94,12 +90,13 @@ export default function page() {
               My Info
             </button>
           </section>
-
-          {selection === 'Create' && <RouteForm />}
-          {selection === 'My Routes' && <RoutesCreated />}
-          {selection === 'Joined Rides' && <RidesJoined />}
-          {selection === 'My Info' && <ProfileInfo />}
-          {selection === 'My Requests' && <PrivateRideRequest />}
+          <section className="public-cards">
+            {selection === 'Create' && <RouteForm />}
+            {selection === 'My Routes' && <RoutesCreated />}
+            {selection === 'Joined Rides' && <RidesJoined />}
+            {selection === 'My Info' && <ProfileInfo />}
+            {selection === 'My Requests' && <PrivateRideRequest />}
+          </section>
         </main>
       </>
     );

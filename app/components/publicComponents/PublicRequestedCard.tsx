@@ -4,8 +4,7 @@ import React from 'react';
 
 export default function PublicRequestedCard({ route }: { route: Ride }) {
   return (
-    <div>
-      <article className="info-card">
+      <>
         <h2>
           <b>Driver:</b> {route.driverName}
         </h2>
@@ -36,7 +35,6 @@ export default function PublicRequestedCard({ route }: { route: Ride }) {
         <Link className='react-link' href={'/profile'}>
           <button>Offer</button>
         </Link>
-      </article>
-    </div>
+      </>
   );
 }

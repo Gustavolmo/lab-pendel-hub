@@ -16,8 +16,7 @@ export default function PublicRouteCard({ route, click, setClick }: any) {
   };
 
   return (
-    <div>
-      <article className="info-card">
+      <>
         <h2>
           <b>Driver:</b> {route.driverName}
         </h2>
@@ -50,7 +49,6 @@ export default function PublicRouteCard({ route, click, setClick }: any) {
         ) : (
           <button onClick={handleJoinRoute}>Join</button>
         )}
-      </article>
-    </div>
+      </>
   );
 }

@@ -37,7 +37,6 @@ export default function PublicAvailableRoutes() {
         const parsedRoute = JSON.parse(routeFromDb);
         accessUserRoute.current = parsedRoute;
         setInProcess(false);
-        setCall(!call)
       };
       asyncByPass();
   }, []);
@@ -45,16 +44,13 @@ export default function PublicAvailableRoutes() {
   if (accessUserRoute.current) {
     return (
       <>
-        <h2>ROUTES AVAILABLE</h2>
-        <section>
           {accessUserRoute.current.map((route: Ride, index: number) => {
             return (
-              <article key={`${index}_${route.createdDate}`}>
+              <div className="info-card" key={`${index}_${route.createdDate}`}>
                 <PublicRouteCard route={route} click={click} setClick={setClick} />
-              </article>
+              </div>
             );
           })}
-        </section>
       </>
     );
   }
