@@ -12,7 +12,8 @@ export default function PrivateRequestCard({ route, setClick, click}: any) {
   }
 
   return (
-    <article className="route-card">
+    <div>
+    <article className='info-card'>
       <h2><b>Driver:</b> {route.driverName}</h2>
       
       <p><b>Departure:</b> {route.timeFromA} <b>From:</b> { route.pointA } <b>To:</b> { route.pointB }</p>
@@ -26,7 +27,8 @@ export default function PrivateRequestCard({ route, setClick, click}: any) {
 
       <p><b>Seating:</b> {route.capacity} </p>
 
-      <button onClick={handleDeleteRoute}>DELETE REQUEST</button>
+      <button onClick={handleDeleteRoute}>REMOVE</button>
     </article>
+    </div>
   );
 }

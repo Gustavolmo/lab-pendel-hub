@@ -26,7 +26,7 @@ export default function routesCreated() {
         setCall(!call)
       };
       asyncByPass();
-    }, 4000)
+    }, 2000)
   }, [click, call]);
 
   useEffect(() => {

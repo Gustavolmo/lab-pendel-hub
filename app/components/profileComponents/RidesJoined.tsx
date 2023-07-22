@@ -29,7 +29,7 @@ export default function ridesJoined() {
         setCall(!call)
       };
       asyncByPass();
-    }, 4000)
+    }, 2000)
   }, [click, call]);
 
 
@@ -52,7 +52,7 @@ export default function ridesJoined() {
   if (accessUserRoute.current) {
     return (
       <>
-        <h2>MY CREATED ROUTES</h2>
+        <h2>MY JOINED ROUTES</h2>
         <section>
           {accessUserRoute.current.map((route: Ride, index: number) => {
             return (

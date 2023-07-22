@@ -1,8 +1,9 @@
 'use client';
-import { createNewRequest, createNewRide, getAllUserPax } from '@/library/private/private';
+import { createNewRequest, createNewRide } from '@/library/private/private';
 import { Ride } from '@/library/types/types';
-import React, { InputHTMLAttributes, useState } from 'react';
+import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
+import '../styles/RouteForm.css'
 
 export default function routeForm() {
   const { data: session, status } = useSession();
@@ -77,11 +78,11 @@ export default function routeForm() {
   };
 
   return (
-    <section className="create-route">
+    <section className="">
       <h1>CREATE ROUTE</h1>
 
       <div>
-        <form className="create-route__route-form" onSubmit={formHandler}>
+        <form className="" onSubmit={formHandler}>
           <div>
             <input
               id="request"
@@ -90,8 +91,8 @@ export default function routeForm() {
               onClick={checkBoxChange}
               checked={isChecked}
               onChange={(e) => {e.target.checked = isChecked}}
+              className='switch'
             />
-            <label>I would like to request this route</label>
           </div>
 
           <label>Addresses</label>

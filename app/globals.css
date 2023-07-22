@@ -1,103 +1,106 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Baskervville&display=swap');
+
+/*
+font-family: 'Baskervville', serif;
+
+#FEF4E4 (PINK)
+#FFBB4C (YELLOW)
+#D9D9D9 (GRAY)
+#FD5B35 (ORANGE)
+#1F1F20 (BLACK)
+*/
 
 * {
-  /* outline: dashed red; */
+  font-family: 'Baskervville', serif;
+  outline: dashed red .5px;
 }
 
 html, body {
-  padding: 0;
-  margin: 0;
+  background-color: #FEF4E4;
+  color: #1f1f20;
+  box-sizing: border-box;
+  padding: 30px 8px;
 }
 
-button {
+.info-card {
+  background-color: #1f1f20;
+  color: white;
+  margin: 32px 0 0 0;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+button,
+.standard-button {
+  /* outline: dashed red .5px; REMOVE */
   font-size: 10px;
-  border-radius: 4px;
-  font-weight: 200;
-  height: 32px;
-  margin: 8px;
+  color: #1f1f20;
+  background-color: #fef4e4;
+  border: 1px solid #FD5B35;
+  border-radius: 6px;
+  padding: 4px 0px;
+  font-weight: lighter;
+  margin: 0 4px;
+  width: 60px;
 }
 
-.button{
-  background-color: #d9edb9;
+button:hover,
+.standard-button:hover {
+  background-color: #FD5B35;
+  color: #fef4e4;
+  text-align: center;
 }
 
-img {
-  height: 64px;
-  width: 64px;
-  border-radius: 99px;
-  margin: 8px;
+.standard-button--selected {
+  background-color: #FD5B35;
+  color: white;
 }
 
-input,
-label,
-textarea {
-  margin: 4px;
+.landing-page-main {
 }
 
-.navbar {
-  height: 80px;
+.landing-page-nav {
+  background-color: #1f1f20;
   display: flex;
+  align-items: center;
   position: fixed;
-  width: 100vw;
-  top: 0px;
-  background-color: #7B2CBF;
-  justify-content: right;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  padding: 0px 16px;
 }
 
-.navbar__info {
+.landing-page-nav__contents {
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
 
-.profile-main {
-  margin-top: 80px;
+.landing-page-nav__contents button {
+  margin: 0 8px;
 }
 
-.profile-btn {
-  padding: 4px;
-  background: #d9edb9;
-  color: black;
-}
-
-.profile-btn--selected {
-  padding: 4px;
-  background-color: #7B2CBF;
-  color: white;
-}
-
-.create-route {
-  margin: 16px;
-}
-
-.create-route__route-form {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(233, 233, 233);
-  width: 50%;
-  padding: 8px;
-}
-
-.route-card {
-  font-size: 12px;
-  background-color: #d9edb9;
-  padding: 8px;
-  margin: 16px;
-  margin-top: 32px;
-  border-radius: 16px;
-  max-width: 700px;
-  box-shadow: 0px 106px 42px rgba(0, 0, 0, 0.01),
-    0px 59px 36px rgba(0, 0, 0, 0.05), 0px 26px 26px rgba(0, 0, 0, 0.09),
-    0px 7px 15px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
-}
-
-.--acceptedPax {
-  background-color: rgb(84, 133, 0);
-  color: white;
+img,
+.logo-image,
+.profile-image {
+  height: 32px;
+  width: 32px;
+  border-radius: 100px;
+  margin: 0 0 0 8px;
 }
 
 .total-pax {
-  color: white;
+  color: #FEF4E4;
+  font-size: 12px;
+}
+
+.react-link {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }

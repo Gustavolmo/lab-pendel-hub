@@ -10,11 +10,13 @@ import PrivateRideRequest from '../components/profileComponents/PrivateRideReque
 import LoginButton from '../components/LoginButton';
 import UserImage from '../components/UserImage';
 import PassengerCount from '../components/profileComponents/PassengerCount';
+import logo from '../public/logo.png';
+import Image from 'next/image';
 
 export default function page() {
   const { data: session, status } = useSession();
   const isAuthenticated = session !== null && status === 'authenticated';
-  const [selection, setSelection] = useState('Create Route');
+  const [selection, setSelection] = useState('Create');
 
   const handleSelection = (value: string) => {
     setSelection(value);
@@ -23,35 +25,40 @@ export default function page() {
   if (isAuthenticated) {
     return (
       <>
-        <nav className="navbar">
-          <PassengerCount />
-          <Link href={'http://localhost:3000'}>
-            <button className=" text-blakc border p-1 px-4 rounded button">
-              Home
-            </button>
-          </Link>
-          <UserImage user={session?.user} />
+        <nav className="landing-page-nav">
+        <Image
+        src={logo}
+        alt="LOGO"
+        className='logo-image'
+        />
+        <PassengerCount />
+          <div className='landing-page-nav__contents'>
+            <Link href={'http://localhost:3000'}>
+              <button className="standard-button">Home</button>
+            </Link>
+            <UserImage user={session?.user} />
+          </div>
         </nav>
 
-        <main className="profile-main">
+        <main className="">
           <h1>MY PAGES</h1>
-          <section className="profile-main__selections">
+          <section className="">
             <button
               onClick={(e: any) => handleSelection(e.target.textContent)}
               className={
-                selection === 'Create Route'
-                  ? 'profile-btn--selected'
-                  : 'profile-btn'
+                selection === 'Create'
+                  ? 'standard-button--selected'
+                  : 'standard-button'
               }
             >
-              Create Route
+              Create
             </button>
             <button
               onClick={(e: any) => handleSelection(e.target.textContent)}
               className={
                 selection === 'My Routes'
-                  ? 'profile-btn--selected'
-                  : 'profile-btn'
+                  ? 'standard-button--selected'
+                  : 'standard-button'
               }
             >
               My Routes
@@ -60,8 +67,8 @@ export default function page() {
               onClick={(e: any) => handleSelection(e.target.textContent)}
               className={
                 selection === 'My Requests'
-                  ? 'profile-btn--selected'
-                  : 'profile-btn'
+                  ? 'standard-button--selected'
+                  : 'standard-button'
               }
             >
               My Requests
@@ -70,8 +77,8 @@ export default function page() {
               onClick={(e: any) => handleSelection(e.target.textContent)}
               className={
                 selection === 'Joined Rides'
-                  ? 'profile-btn--selected'
-                  : 'profile-btn'
+                  ? 'standard-button--selected'
+                  : 'standard-button'
               }
             >
               Joined Rides
@@ -80,15 +87,15 @@ export default function page() {
               onClick={(e: any) => handleSelection(e.target.textContent)}
               className={
                 selection === 'My Info'
-                  ? 'profile-btn--selected'
-                  : 'profile-btn'
+                  ? 'standard-button--selected'
+                  : 'standard-button'
               }
             >
               My Info
             </button>
           </section>
 
-          {selection === 'Create Route' && <RouteForm />}
+          {selection === 'Create' && <RouteForm />}
           {selection === 'My Routes' && <RoutesCreated />}
           {selection === 'Joined Rides' && <RidesJoined />}
           {selection === 'My Info' && <ProfileInfo />}

@@ -17,7 +17,7 @@ export default function PublicRouteCard({ route, click, setClick }: any) {
 
   return (
     <div>
-      <article className="route-card">
+      <article className="info-card">
         <h2>
           <b>Driver:</b> {route.driverName}
         </h2>

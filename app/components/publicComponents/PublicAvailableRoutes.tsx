@@ -24,7 +24,7 @@ export default function PublicAvailableRoutes() {
         setCall(!call)
       };
       asyncByPass();
-    }, 4000)
+    }, 2000)
   }, [click, call]);
 
   useEffect(() => {

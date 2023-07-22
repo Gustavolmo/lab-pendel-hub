@@ -48,35 +48,35 @@ export default function HomePage() {
     <>
       <h1>PENDEL HUB! be a bus</h1>
 
-      <section className="profile-main__selections">
+      <section className="">
 
-      <div className='profile-main__button'>
+      <div className=''>
         <button
           onClick={(e: any) => handleSelection(e.target.textContent)}
           className={
             selection === 'Available Routes'
-              ? 'profile-btn--selected'
-              : 'profile-btn'
+              ? 'standard-button--selected'
+              : 'standard-button'
           }
         >
-          Available Routes
+          Routes
         </button>
 
         <button
           onClick={(e: any) => handleSelection(e.target.textContent)}
           className={
-            selection === 'Routes Being Requested'
-              ? 'profile-btn--selected'
-              : 'profile-btn'
+            selection === 'Requests'
+              ? 'standard-button--selected'
+              : 'standard-button'
           }
         >
-          Routes Being Requested
+          Requests
         </button>
         </div>
 
-        <section className='profile-main__options'>
+        <section className=''>
         {selection === 'Available Routes' && <PublicAvailableRoutes />}
-        {selection === 'Routes Being Requested' && <PublicRequestedRoutes />}
+        {selection === 'Requests' && <PublicRequestedRoutes />}
         </section>
 
       </section>

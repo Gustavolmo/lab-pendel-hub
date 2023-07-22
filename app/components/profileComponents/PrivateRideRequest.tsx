@@ -28,7 +28,7 @@ export default function PrivateRideRequest() {
   if (accessUserRoute.current) {
     return (
       <>
-        <h2>MY CREATED ROUTES</h2>
+        <h2>MY REQUESTED ROUTES</h2>
         <section>
           {accessUserRoute.current.map((route: Ride, index: number) => {
             return (

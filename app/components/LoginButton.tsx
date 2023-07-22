@@ -9,33 +9,31 @@ export default function LoginButton() {
 
   if (session) {
     return (
-      <div className="navbar__info">
-        <PassengerCount />
-        <Link href={'http://localhost:3000//profile'}>
-          <button className=" text-blakc border p-1 px-4 rounded button">
-            My Profile
-          </button>
-        </Link>
+      <div className="landing-page-nav__contents">
+        
 
         <button
           onClick={() => {
             signOut();
           }}
           type="button"
-          className=" text-blakc border p-1 px-4 rounded button"
+          className="standard-button"
         >
           Sign Out
         </button>
+        <Link className='react-link' href={'http://localhost:3000//profile'}>
+          <button>Profile</button>
+        </Link>
         <UserImage user={session.user} />
       </div>
     );
   } else {
     return (
-      <div className="navbar__info">
+      <div className="landing-page-nav__contents">
         <button
           onClick={() => signIn()}
           type="button"
-          className=" text-black border p-1 px-4 rounded button "
+          className="standard-button"
         >
           Log In
         </button>
