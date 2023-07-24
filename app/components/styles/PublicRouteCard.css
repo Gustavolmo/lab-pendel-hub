@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Montserrat:wght@100;500&display=swap');
+.card {
+  height: 360px;
+    font-family: 'Lato', sans-serif;
+    font-weight: lighter;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    background: rgba(31, 31, 32,.7);
+    color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  .content{
+    padding: 10px;
+    border: none;
+    background: linear-gradient(-54deg, #FFBB4C 0%, #FEF4E4, 100%);
+  }
+  .content::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    background: linear-gradient(-54deg, #FFBB4C 0%, #FEF4E4, 100%);  
+    z-index: -1;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  .content:hover::before{
+    width: 100%;
+  }
+  h2 {
+  
+    margin-bottom: 10px;
+  }
+  
+  .info p {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  
+  
+  .btn{
+    width :100px;
+   margin: .8rem;
+   padding: .5rem 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #FD5B35;
+    color: #FEF4E4;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  

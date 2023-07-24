@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&family=Orbitron&display=swap');
+
+.nav__header{
+    margin-top: .8rem;
+    display:flex;
+    flex-direction: row
+}
+.nav__logo__title{
+
+}
+.nav__logo__title__main{
+    color: #FEF4E4;
+    font-size: 1.4rem;
+    margin-left: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200 ;
+    line-height: 1.4rem;
+}
+.nav__logo__title__secondary{
+    margin-left: 1rem;
+    display: block;
+    color: #FEF4E4;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight:100;
+}

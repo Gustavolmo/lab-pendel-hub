@@ -12,6 +12,7 @@ import UserImage from '../components/UserImage';
 import PassengerCount from '../components/profileComponents/PassengerCount';
 import logo from '../public/logo.png';
 import Image from 'next/image';
+import Logo from '../components/profileComponents/Logo';
 
 export default function page() {
   const { data: session, status } = useSession();
@@ -21,12 +22,14 @@ export default function page() {
   const handleSelection = (value: string) => {
     setSelection(value);
   };
+  
 
   if (isAuthenticated) {
     return (
       <>
         <nav className="landing-page-nav">
-          <Image src={logo} alt="LOGO" className="logo-image" />
+          {/* <Image src={logo} alt="LOGO" className="logo-image" /> */}
+          <Logo/>
           <PassengerCount />
           <div className="landing-page-nav__contents">
             <Link href={'http://localhost:3000'}>

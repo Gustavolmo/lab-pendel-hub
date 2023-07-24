@@ -49,6 +49,7 @@ export default function PassengerCount() {
     return (
       <>
         <div className="total-pax">
+          
         &#x1F464; {accessPaxCount.current}
         </div>
       </>

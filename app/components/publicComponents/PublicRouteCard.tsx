@@ -1,5 +1,6 @@
 import { addPassengerToRoute } from '@/library/private/private';
 import { useSession } from 'next-auth/react';
+import '../styles/PublicRouteCard.css'
 
 export default function PublicRouteCard({ route, click, setClick }: any) {
   const { data: session, status } = useSession();
@@ -15,7 +16,8 @@ export default function PublicRouteCard({ route, click, setClick }: any) {
   };
 
   return (
-      <>
+      <div className='card'>
+        <div className="content">
         <h2>
           <b>Driver:</b> {route.driverName}
         </h2>
@@ -48,6 +50,8 @@ export default function PublicRouteCard({ route, click, setClick }: any) {
         ) : (
           <button onClick={handleJoinRoute}>Join</button>
         )}
-      </>
+      </div>
+        </div>
+       
   );
 }

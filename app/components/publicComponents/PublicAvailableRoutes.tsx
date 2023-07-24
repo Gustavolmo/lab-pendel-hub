@@ -4,6 +4,7 @@ import { Ride } from '@/library/types/types';
 import { getAllOfferedRoutes } from '@/library/public/public';
 import PublicRouteCard from './PublicRouteCard';
 
+
 export default function PublicAvailableRoutes() {
   const accessUserRoute = useRef([]);
   const [inProcess, setInProcess] = useState(false);
