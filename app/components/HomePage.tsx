@@ -70,11 +70,14 @@ export default function HomePage() {
           </button>
         </div>
 
-          <section className="public-cards">
-            {selection === 'Routes' && <PublicAvailableRoutes />}
-            {selection === 'Requests' && <PublicRequestedRoutes />}
-          </section>
+            <section>
+              {/* SEARCH BAR COMPONENT */}
+            </section>
 
+        <section className="public-cards">
+          {selection === 'Routes' && <PublicAvailableRoutes />}
+          {selection === 'Requests' && <PublicRequestedRoutes />}
+        </section>
       </section>
     </>
   );

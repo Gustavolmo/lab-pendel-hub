@@ -20,3 +20,8 @@ export const getAllRequestedRoutes = async () => {
   const rideData = await userCollection.find({isRequest: true}).toArray();
   return JSON.stringify(rideData)
 }
+
+// get search results
+export const getSearchResults = async () => {
+  // DO FUNKY STUFF HERE
+}

@@ -3,10 +3,10 @@
 .nav__header{
     margin-top: .8rem;
     display:flex;
-    flex-direction: row
+    flex-direction: row;
+    align-items: center;
 }
-.nav__logo__title{
-}
+
 .nav__logo__title__main{
     color: #FEF4E4;
     font-size: 1.4rem;
@@ -22,4 +22,36 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight:100;
+}
+
+@media (max-width: 650px) {
+    .nav__logo__title__secondary {
+        display: none;
+    }
+
+    .logo-image {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+
+@media (max-width: 470px) {
+    .nav__logo__title__main {
+        display: none;
+    }
+
+    .logo-image {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .logo-image {
+        display: none;
+    }
+
+    .profile-image {
+        display: none;
+    }
 }
