@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import logo from '/Users/alexandramacovei/pendel-hub/loga-final-project/app/public/logo.png';
+import logo from '../../../app/public/logo.png';
 import React from 'react';
 import '../styles/Logo.css';
 
