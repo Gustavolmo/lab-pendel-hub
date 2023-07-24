@@ -1,11 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Baskervville&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Montserrat:wght@100;500&display=swap');
 /*
-font-family: 'Baskervville', serif;
-
 #FEF4E4 (PINK)
 #FFBB4C (YELLOW)
 #D9D9D9 (GRAY)
@@ -19,44 +16,33 @@ font-family: 'Baskervville', serif;
 }
 
 html, body {
-  background-color: #FEF4E4;
+  background-color: #2B2D42;
   color: #1f1f20;
   box-sizing: border-box;
   padding: 50px 8px;
 }
 
-.info-card {
-  background: linear-gradient(to bottom, #1F1F20, #4f5252);  color: #FEF4E4;
-  margin: 32px 8px 0 8px;
-  padding: 12px;
-  border-radius: 6px;
-  width: 340px;
-  min-height: 360px;
-}
-
 button,
 .standard-button {
-  font-size: 16px;
+  font-weight: 400;
+  font-size: 14px;
   color: #1f1f20;
   background-color: #fef4e4;
   padding: 4px 4px;
   margin: 0 4px;
-  font-weight: lighter;
   min-width: 80px;
   border-radius: 6px;
 }
 
 button:hover,
 .standard-button:hover {
-  background-color: #FD5B35;
-  color: #fef4e4;
+  background-color: #FFBE0B;
   text-align: center;
   transition: 0.4s;
 }
 
 .standard-button--selected {
-  background-color: #FD5B35;
-  color: white;
+  background-color: #FFBE0B;
 }
 
 .landing-page-main {
@@ -78,6 +64,7 @@ button:hover,
   align-items: center;
   justify-content: center;
   width: 100%;
+  max-width: 1300px;
 }
 
 .landing-page-nav {
@@ -118,9 +105,11 @@ img,
   position: absolute;
   top: 90px;
   right: 16px;
-  /* background-color: #FD5B35; */
-  color: #FD5B35;
-  font-size: 1.4rem
+  background-color: #1f1f20;
+  color: #FFBE0B;
+  font-size: 1rem;
+  border-radius: 200px;
+  padding: 8px;
 }
 
 .react-link {

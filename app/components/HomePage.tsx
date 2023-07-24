@@ -2,9 +2,10 @@
 import { createNewUser, getUserByEmail } from '@/library/private/private';
 import { User } from '@/library/types/types';
 import { useSession } from 'next-auth/react';
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import PublicAvailableRoutes from './publicComponents/PublicAvailableRoutes';
 import PublicRequestedRoutes from './publicComponents/PublicRequestedRoutes';
+import Loading from './Loading';
 
 export default function HomePage() {
   const { data: session, status } = useSession();
@@ -46,7 +47,6 @@ export default function HomePage() {
 
   return (
     <>
-
       <section className="landing-page-main__section">
         <div className="">
           <button
@@ -71,10 +71,12 @@ export default function HomePage() {
             Requests
           </button>
         </div>
-        <section className="public-cards">
+
+          <section className="public-cards">
             {selection === 'Routes' && <PublicAvailableRoutes />}
             {selection === 'Requests' && <PublicRequestedRoutes />}
-        </section>
+          </section>
+
       </section>
     </>
   );

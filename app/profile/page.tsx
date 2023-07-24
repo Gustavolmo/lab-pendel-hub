@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import RouteForm from '../components/profileComponents/RouteForm';
 import RidesJoined from '../components/profileComponents/RidesJoined';
@@ -11,6 +11,7 @@ import LoginButton from '../components/LoginButton';
 import UserImage from '../components/UserImage';
 import PassengerCount from '../components/profileComponents/PassengerCount';
 import Logo from '../components/profileComponents/Logo';
+import Loading from '../components/Loading';
 
 export default function page() {
   const { data: session, status } = useSession();
@@ -20,12 +21,12 @@ export default function page() {
   const handleSelection = (value: string) => {
     setSelection(value);
   };
-  
+
   if (isAuthenticated) {
     return (
       <>
         <nav className="landing-page-nav">
-          <Logo/>
+          <Logo />
           <PassengerCount />
           <div className="landing-page-nav__contents">
             <Link href={'http://localhost:3000'}>
@@ -88,13 +89,15 @@ export default function page() {
               My Info
             </button>
           </section>
-          <section className="public-cards">
+
+            <section className="public-cards">
               {selection === 'Create' && <RouteForm />}
               {selection === 'My Routes' && <RoutesCreated />}
               {selection === 'Joined Rides' && <RidesJoined />}
               {selection === 'My Info' && <ProfileInfo />}
               {selection === 'My Requests' && <PrivateRideRequest />}
-          </section>
+            </section>
+
         </main>
       </>
     );

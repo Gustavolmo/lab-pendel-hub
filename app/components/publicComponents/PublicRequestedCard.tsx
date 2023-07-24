@@ -1,6 +1,7 @@
 import { Ride } from '@/library/types/types';
 import Link from 'next/link';
 import React from 'react';
+import '../styles/RouteCard.css';
 
 export default function PublicRequestedCard({ route }: { route: Ride }) {
   return (
