@@ -91,11 +91,11 @@ export default function page() {
             </button>
           </section>
           <section className="public-cards">
-            {selection === 'Create' && <RouteForm />}
-            {selection === 'My Routes' && <RoutesCreated />}
-            {selection === 'Joined Rides' && <RidesJoined />}
-            {selection === 'My Info' && <ProfileInfo />}
-            {selection === 'My Requests' && <PrivateRideRequest />}
+              {selection === 'Create' && <RouteForm />}
+              {selection === 'My Routes' && <RoutesCreated />}
+              {selection === 'Joined Rides' && <RidesJoined />}
+              {selection === 'My Info' && <ProfileInfo />}
+              {selection === 'My Requests' && <PrivateRideRequest />}
           </section>
         </main>
       </>
@@ -104,8 +104,13 @@ export default function page() {
 
   return (
     <>
-      <p>401 - not authorized</p>
-      <LoginButton />
+      <section className="not-authorized-card">
+        <p>401 - not authorized</p>
+        <LoginButton />
+        <Link href={'/'}>
+          <button className="standard-button">Home</button>
+        </Link>
+      </section>
     </>
   );
 }
