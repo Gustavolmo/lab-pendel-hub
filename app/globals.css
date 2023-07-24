@@ -27,8 +27,9 @@ button,
 .standard-button {
   font-weight: 400;
   font-size: 14px;
-  color: #1f1f20;
-  background-color: #fef4e4;
+  color: #FFBE0B;
+  border: .5px solid #FFBE0B;
+  background-color: #2B2D42;
   padding: 4px 4px;
   margin: 0 4px;
   min-width: 80px;
@@ -38,12 +39,14 @@ button,
 button:hover,
 .standard-button:hover {
   background-color: #FFBE0B;
+  color: #1f1f20;
   text-align: center;
   transition: 0.4s;
 }
 
 .standard-button--selected {
   background-color: #FFBE0B;
+  color: #1f1f20;
 }
 
 .landing-page-main {

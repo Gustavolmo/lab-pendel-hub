@@ -11,7 +11,7 @@ export default function PublicRouteCard({ route, click, setClick }: any) {
       setClick(!click);
       addPassengerToRoute(session?.user?.email, String(route._id));
     } else {
-      signIn()
+      signIn();
     }
   };
 
@@ -59,7 +59,12 @@ export default function PublicRouteCard({ route, click, setClick }: any) {
             {route.capacity}
           </p>
         </section>
-        <h2>{route.driverName}</h2>
+
+        <div className='card__bottom-info'>
+          <h2>{route.driverName}</h2>
+          <i className='card__date'>{route.availableFromDate}</i>
+        </div>
+        
       </div>
     </div>
   );

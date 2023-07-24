@@ -29,16 +29,6 @@ span {
   padding: .4rem;
 }
 
-/* .card__extra-info {
-  font-size: 14px;
-  display: none;
-  transition: 0.3s ease;
-}
-
-.info-card:hover .card__extra-info {
-  display: block;
-} */
-
 .content {
   padding: 10px;
 }
@@ -106,4 +96,11 @@ h2 {
   justify-content: right;
   margin-top: 4px;
   gap: 8px;
+}
+
+.card__date {
+  font-size: .8rem;
+  display: flex;
+  justify-content: right;
+  margin-top: 0px;
 }

@@ -153,7 +153,8 @@ export default function routeForm() {
             value={formData.timeFromB}
             className="input"
           />
-          <input
+          
+          {!isChecked &&<input
             type="text"
             placeholder="travel time"
             required
@@ -161,7 +162,7 @@ export default function routeForm() {
             onChange={handleChange}
             value={formData.tripTime}
             className="input"
-          />
+          />}
 
           <input
             type="text"
@@ -195,7 +196,7 @@ export default function routeForm() {
             value={formData.message}
           ></textarea>
 
-          <textarea
+          {!isChecked && <textarea
             id=""
             cols={30}
             rows={3}
@@ -204,7 +205,7 @@ export default function routeForm() {
             name="carDescription"
             onChange={handleChange}
             value={formData.carDescription}
-          ></textarea>
+          ></textarea> }
 
           <button className="submit-button" type="submit">
             Submit

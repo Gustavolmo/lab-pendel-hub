@@ -50,7 +50,7 @@
   padding-top: 1.6rem ;
   margin-top: 4rem;
   border-left: 2px solid #fef4e4;
-  border-image: linear-gradient(to right, #fd5b35, #ffbb4c) 1;
+  border-image: linear-gradient(to bottom, #fd5b35, #ffbb4c) 1;
   /* background: rgba(31, 31, 32, .6); */
   background-color: transparent;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;

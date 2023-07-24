@@ -35,7 +35,9 @@ export default function PublicRequestedCard({ route }: { route: Ride }) {
             <span>Seats:</span> {route.capacity}
           </p>
         </section>
-        <h2>{route.driverName}</h2>
+        <div className='card__bottom-info'>
+          <i className='card__date'>{route.availableFromDate}</i>
+        </div>
       </div>
     </div>
   );
