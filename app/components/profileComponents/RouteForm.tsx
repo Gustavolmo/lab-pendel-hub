@@ -78,11 +78,11 @@ export default function routeForm() {
   };
 
   return (
-    <section className="">
-      <h1>CREATE ROUTE</h1>
+    <section className="form">
+     <h1 className="form__title">{isChecked ? 'REQUEST ROUTE' : 'CREATE ROUTE'}</h1>
 
       <div>
-        <form className="" onSubmit={formHandler}>
+        <form className="input" onSubmit={formHandler}>
           <div>
             <input
               id="request"
@@ -95,7 +95,7 @@ export default function routeForm() {
             />
           </div>
 
-          <label>Addresses</label>
+  
           <input
             type="text"
             placeholder="From Address"
@@ -103,6 +103,7 @@ export default function routeForm() {
             name="pointA"
             onChange={handleChange}
             value={formData.pointA}
+            className='input'
           />
           <input
             type="text"
@@ -111,10 +112,11 @@ export default function routeForm() {
             name="pointB"
             onChange={handleChange}
             value={formData.pointB}
+            className='input'
           />
 
-          <label>Available From</label>
           <input
+          placeholder='available from'
             type="date"
             min="2023-01-01"
             max="2027-12-31"
@@ -122,8 +124,9 @@ export default function routeForm() {
             name="availableFromDate"
             onChange={handleChange}
             value={formData.availableFromDate}
+            className='input'
           />
-          <label>Times</label>
+  
           <input
             type="text"
             placeholder="departure time inboud"
@@ -131,6 +134,7 @@ export default function routeForm() {
             name="timeFromA"
             onChange={handleChange}
             value={formData.timeFromA}
+            className='input'
           />
           <input
             type="text"
@@ -139,6 +143,7 @@ export default function routeForm() {
             name="timeFromB"
             onChange={handleChange}
             value={formData.timeFromB}
+            className='input'
           />
           <input
             type="text"
@@ -147,18 +152,22 @@ export default function routeForm() {
             name="tripTime"
             onChange={handleChange}
             value={formData.tripTime}
+            className='input'
           />
 
-          <label>Frequency</label>
+        
           <input
+          
             type="text"
             placeholder="Which week days will you drive?"
             required
             name="frequency"
             onChange={handleChange}
             value={formData.frequency}
+            className='input'
           />
-          <label>Capacity</label>
+    
+    
           <input
             type="number"
             min={1}
@@ -166,13 +175,14 @@ export default function routeForm() {
             name="capacity"
             onChange={handleChange}
             value={formData.capacity}
+               className='input'
           />
 
-          <label>Details</label>
+
           <textarea
             id=""
-            cols={30}
-            rows={6}
+            cols={20}
+            rows={3}
             placeholder="Add a message"
             required
             name="message"
@@ -191,7 +201,7 @@ export default function routeForm() {
             value={formData.carDescription}
           ></textarea>
 
-          <button type="submit">Submit</button>
+          <button className='submit-button' type="submit">Submit</button>
         </form>
       </div>
     </section>

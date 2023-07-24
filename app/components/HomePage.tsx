@@ -46,7 +46,6 @@ export default function HomePage() {
 
   return (
     <>
-      <h1>PENDEL HUB! be a bus</h1>
 
       <section className="landing-page-main__section">
         <div className="">

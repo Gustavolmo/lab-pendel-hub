@@ -1,14 +1,13 @@
 import HomePage from './components/HomePage';
 import LoginButton from './components/LoginButton';
 import Image from 'next/image';
-import logo from './public/logo.png';
 import PassengerCount from './components/profileComponents/PassengerCount';
-
+import Logo from './components/profileComponents/Logo';
 export default function Home() {
   return (
     <>
-      <nav className="landing-page-nav">
-        <Image src={logo} alt="LOGO" className="logo-image" />
+    <nav className='landing-page-nav'>
+      <Logo/>
         <PassengerCount />
         <LoginButton />
       </nav>

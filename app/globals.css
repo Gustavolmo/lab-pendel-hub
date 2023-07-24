@@ -22,16 +22,15 @@ html, body {
   background-color: #FEF4E4;
   color: #1f1f20;
   box-sizing: border-box;
-  padding: 30px 8px;
+  padding: 50px 8px;
 }
 
 .info-card {
-  background-color: #1f1f20;
-  color: #FEF4E4;
+  background: linear-gradient(to bottom, #1F1F20, #4f5252);  color: #FEF4E4;
   margin: 32px 8px 0 8px;
   padding: 12px;
   border-radius: 6px;
-  width: 360px;
+  width: 340px;
   min-height: 360px;
 }
 
@@ -83,7 +82,9 @@ button:hover,
 }
 
 .landing-page-nav {
-  background-color: #1f1f20;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(31, 31, 32, .8);
   display: flex;
   align-items: center;
   position: fixed;
@@ -91,8 +92,9 @@ button:hover,
   top: 0;
   left: 0;
   right: 0;
-  height: 44px;
+  height: 70px;
   padding: 0px 16px;
+
 }
 
 .landing-page-nav__contents {
@@ -115,11 +117,11 @@ img,
 
 .total-pax {
   position: absolute;
-  top: 50px;
+  top: 90px;
   right: 16px;
   /* background-color: #FD5B35; */
   color: #FD5B35;
-  font-size: 12px;
+  font-size: 1.4rem
 }
 
 .react-link {

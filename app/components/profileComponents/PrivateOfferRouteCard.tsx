@@ -7,6 +7,7 @@ import {
 import { User } from '@/library/types/types';
 import React, { useEffect, useRef, useState } from 'react';
 
+
 export default function PrivateOfferRouteCard({ route, setClick, click }: any) {
   const accessAllPassengers = useRef([]);
   const [inProcess, setInProcess] = useState(false);
