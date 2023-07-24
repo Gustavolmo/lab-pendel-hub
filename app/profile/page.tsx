@@ -10,8 +10,6 @@ import PrivateRideRequest from '../components/profileComponents/PrivateRideReque
 import LoginButton from '../components/LoginButton';
 import UserImage from '../components/UserImage';
 import PassengerCount from '../components/profileComponents/PassengerCount';
-import logo from '../public/logo.png';
-import Image from 'next/image';
 import Logo from '../components/profileComponents/Logo';
 
 export default function page() {
@@ -23,12 +21,10 @@ export default function page() {
     setSelection(value);
   };
   
-
   if (isAuthenticated) {
     return (
       <>
         <nav className="landing-page-nav">
-          {/* <Image src={logo} alt="LOGO" className="logo-image" /> */}
           <Logo/>
           <PassengerCount />
           <div className="landing-page-nav__contents">
@@ -40,7 +36,6 @@ export default function page() {
         </nav>
 
         <main className="profile-main">
-          <h1>MY PAGES</h1>
           <section className="">
             <button
               onClick={(e: any) => handleSelection(e.target.textContent)}

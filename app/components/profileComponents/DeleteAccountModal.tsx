@@ -33,7 +33,7 @@ export default function DeleteAccountModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Delete Account</Button>
+      <Button onClick={handleOpen}>Delete</Button>
       <Modal
         open={open}
         onClose={handleClose}

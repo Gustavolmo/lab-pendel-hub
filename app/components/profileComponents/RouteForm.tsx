@@ -3,12 +3,12 @@ import { createNewRequest, createNewRide } from '@/library/private/private';
 import { Ride } from '@/library/types/types';
 import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
-import '../styles/RouteForm.css'
+import '../styles/RouteForm.css';
 
 export default function routeForm() {
   const { data: session, status } = useSession();
   const date = String(new Date().toLocaleDateString());
-  const [isChecked, setIsChecked] = useState(false)
+  const [isChecked, setIsChecked] = useState(false);
 
   const [formData, setFormData] = useState<Ride>({
     driverId: '',
@@ -33,8 +33,8 @@ export default function routeForm() {
   });
 
   const checkBoxChange = () => {
-    setIsChecked(!isChecked)
-  }
+    setIsChecked(!isChecked);
+  };
 
   const handleChange = (e: any) => {
     setFormData({
@@ -46,10 +46,16 @@ export default function routeForm() {
   const formHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (isChecked){
-      createNewRequest(session?.user?.email, {...formData, isRequest: isChecked});
+    if (isChecked) {
+      createNewRequest(session?.user?.email, {
+        ...formData,
+        isRequest: isChecked,
+      });
     } else {
-      createNewRide(session?.user?.email, {...formData, isRequest: isChecked});
+      createNewRide(session?.user?.email, {
+        ...formData,
+        isRequest: isChecked,
+      });
     }
 
     setFormData({
@@ -74,28 +80,30 @@ export default function routeForm() {
       paxCount: 0,
     });
 
-    setIsChecked(false)
+    setIsChecked(false);
   };
 
   return (
     <section className="form">
-     <h1 className="form__title">{isChecked ? 'REQUEST ROUTE' : 'CREATE ROUTE'}</h1>
-
       <div>
         <form className="input" onSubmit={formHandler}>
-          <div>
+          <div className="form__div-title">
             <input
               id="request"
               type="checkbox"
               name="isRequest"
               onClick={checkBoxChange}
               checked={isChecked}
-              onChange={(e) => {e.target.checked = isChecked}}
-              className='switch'
+              onChange={(e) => {
+                e.target.checked = isChecked;
+              }}
+              className="switch"
             />
+            <h1 className="form__title">
+              {isChecked ? 'REQUEST ROUTE' : 'CREATE ROUTE'}
+            </h1>
           </div>
 
-  
           <input
             type="text"
             placeholder="From Address"
@@ -103,7 +111,7 @@ export default function routeForm() {
             name="pointA"
             onChange={handleChange}
             value={formData.pointA}
-            className='input'
+            className="input"
           />
           <input
             type="text"
@@ -112,11 +120,11 @@ export default function routeForm() {
             name="pointB"
             onChange={handleChange}
             value={formData.pointB}
-            className='input'
+            className="input"
           />
 
           <input
-          placeholder='available from'
+            placeholder="available from"
             type="date"
             min="2023-01-01"
             max="2027-12-31"
@@ -124,9 +132,9 @@ export default function routeForm() {
             name="availableFromDate"
             onChange={handleChange}
             value={formData.availableFromDate}
-            className='input'
+            className="input"
           />
-  
+
           <input
             type="text"
             placeholder="departure time inboud"
@@ -134,7 +142,7 @@ export default function routeForm() {
             name="timeFromA"
             onChange={handleChange}
             value={formData.timeFromA}
-            className='input'
+            className="input"
           />
           <input
             type="text"
@@ -143,7 +151,7 @@ export default function routeForm() {
             name="timeFromB"
             onChange={handleChange}
             value={formData.timeFromB}
-            className='input'
+            className="input"
           />
           <input
             type="text"
@@ -152,31 +160,31 @@ export default function routeForm() {
             name="tripTime"
             onChange={handleChange}
             value={formData.tripTime}
-            className='input'
+            className="input"
           />
 
-        
           <input
-          
             type="text"
             placeholder="Which week days will you drive?"
             required
             name="frequency"
             onChange={handleChange}
             value={formData.frequency}
-            className='input'
+            className="input"
           />
-    
-    
-          <input
-            type="number"
-            min={1}
-            max={20}
-            name="capacity"
-            onChange={handleChange}
-            value={formData.capacity}
-               className='input'
-          />
+
+            <h2 className='form-seats-title'>
+              Seats
+            </h2>
+            <input
+              type="number"
+              min={1}
+              max={20}
+              name="capacity"
+              onChange={handleChange}
+              value={formData.capacity}
+              className="input"
+            />
 
 
           <textarea
@@ -201,7 +209,9 @@ export default function routeForm() {
             value={formData.carDescription}
           ></textarea>
 
-          <button className='submit-button' type="submit">Submit</button>
+          <button className="submit-button" type="submit">
+            Submit
+          </button>
         </form>
       </div>
     </section>

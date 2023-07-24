@@ -14,7 +14,7 @@ font-family: 'Baskervville', serif;
 */
 
 * {
-  font-family: 'Baskervville', serif;
+  font-family: 'Lato', sans-serif;
   /* outline: dashed red .5px; */
 }
 
@@ -36,16 +36,14 @@ html, body {
 
 button,
 .standard-button {
-  /* outline: dashed red .5px; REMOVE */
-  font-size: 10px;
+  font-size: 16px;
   color: #1f1f20;
   background-color: #fef4e4;
-  border: 1px solid #FD5B35;
-  border-radius: 6px;
-  padding: 4px 0px;
-  font-weight: lighter;
+  padding: 4px 4px;
   margin: 0 4px;
-  width: 60px;
+  font-weight: lighter;
+  min-width: 80px;
+  border-radius: 6px;
 }
 
 button:hover,
@@ -53,6 +51,7 @@ button:hover,
   background-color: #FD5B35;
   color: #fef4e4;
   text-align: center;
+  transition: 0.4s;
 }
 
 .standard-button--selected {
@@ -94,7 +93,7 @@ button:hover,
   right: 0;
   height: 70px;
   padding: 0px 16px;
-
+  z-index: 1000;
 }
 
 .landing-page-nav__contents {
