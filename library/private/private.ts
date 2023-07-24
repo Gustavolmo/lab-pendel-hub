@@ -134,7 +134,7 @@ export const addPassengerToRoute = async (
   const ride = await rideCollection.findOne({ _id: new ObjectId(uniqueId) });
 
   if (ride?.capacity <= ride?.passengers.length) {
-    return; // ADDED CONDITIONAL
+    return; // CHECKING FOR SEATS CAPACITY
   }
 
   await rideCollection.updateOne(

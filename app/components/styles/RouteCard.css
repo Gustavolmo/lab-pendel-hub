@@ -6,13 +6,14 @@ span {
 
 .info-card {
   font-weight: 300;
-  background: rgba(31, 31, 32);
+  background: rgba(31, 31, 32, .6);
   color: #fef4e4;
   margin: 32px 8px 0 8px;
   padding: 12px;
   border-radius: 6px;
   width: 400px;
   transition: 0.2s;
+  min-height: 300px;
 }
 
 .info-card:hover {
@@ -91,4 +92,18 @@ h2 {
 
 .full-ride {
   color: #fd5b35;
+}
+
+.cards__passengers {
+  display: flex;
+  justify-content: right;
+  margin-top: 4px;
+  margin-right: 8px;
+}
+
+.cards__passengers__unit {
+  display: flex;
+  justify-content: right;
+  margin-top: 4px;
+  gap: 8px;
 }

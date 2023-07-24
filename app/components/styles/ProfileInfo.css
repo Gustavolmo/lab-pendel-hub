@@ -1,5 +1,6 @@
 .profile-section {
-  background-color: #FFBB4C;
+  background-color: transparent;
+  color: #FEF4E4;
   margin: 32px;
   padding: 16px;
   border-radius: 6px;
@@ -8,4 +9,7 @@
   align-items: center;
   width: 360px;
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  border-left: 2px solid #fef4e4;
+  border-image: linear-gradient(to right, #fd5b35, #ffbb4c) 1;
 }
+

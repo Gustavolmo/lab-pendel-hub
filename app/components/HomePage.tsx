@@ -15,9 +15,7 @@ export default function HomePage() {
   const handleLogIn = async (userData: User) => {
     const userFromDb = await getUserByEmail(userData.email);
     if (userFromDb) {
-      console.log('user exists', userFromDb);
     } else {
-      console.log('new user', userFromDb);
       createNewUser(userData.name, userData.email, userData.image);
     }
   };

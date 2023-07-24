@@ -1,9 +1,9 @@
-import './styles/Loading.css'
+import './styles/Loading.css';
 
 export default function Loading() {
   return (
     <>
-    <div className="container">
+      <div className="container">
         <div className="row">
             <div className="circle loading-animation"></div>
             <div className="column">
@@ -22,5 +22,5 @@ export default function Loading() {
         </div>
     </div>
     </>
-  )
+  );
 }

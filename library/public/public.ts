@@ -11,7 +11,7 @@ const collectionNameRides = 'routes';
 export const getAllOfferedRoutes = async () => {
   const userCollection = client.db(databaseName).collection(collectionNameRides);
   const rideData = await userCollection.find({isRequest: false}).toArray();
-  return JSON.stringify(rideData)
+  return rideData
 }
 
 //get all requested routes

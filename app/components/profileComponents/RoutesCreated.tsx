@@ -57,6 +57,7 @@ export default function routesCreated() {
                 route={route}
                 setClick={setClick}
                 click={click}
+                call={call}
               />
             </article>
           );

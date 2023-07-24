@@ -6,9 +6,9 @@ import {
 } from '@/library/private/private';
 import { User } from '@/library/types/types';
 import React, { useEffect, useRef, useState } from 'react';
+import '../styles/RouteCard.css';
 
-
-export default function PrivateOfferRouteCard({ route, setClick, click }: any) {
+export default function PrivateOfferRouteCard({ route, setClick, click, call }: any) {
   const accessAllPassengers = useRef([]);
   const [inProcess, setInProcess] = useState(false);
 
@@ -26,7 +26,7 @@ export default function PrivateOfferRouteCard({ route, setClick, click }: any) {
       setInProcess(false);
     };
     handleAsync();
-  }, [click]);
+  }, [click, call]);
 
   const handleDeleteRoute = () => {
     deleteRoute(String(route._id));
@@ -43,55 +43,52 @@ export default function PrivateOfferRouteCard({ route, setClick, click }: any) {
 
   return (
     <>
-      <h2>
-        <b>Driver:</b> {route.driverName}
-      </h2>
+      <div className="card">
+        <div className="content">
+          <div className="card-button">
+            <button onClick={handleDeleteRoute}>Remove</button>
+          </div>
 
-      <p>
-        <b>Departure:</b> {route.timeFromA} <b>From:</b> {route.pointA}{' '}
-        <b>To:</b> {route.pointB}
-      </p>
-      <p>
-        <b>Departure:</b> {route.timeFromB} <b>From:</b> {route.pointB}{' '}
-        <b>To:</b> {route.pointA}
-      </p>
-      <p>
-        <b>Travel Time:</b> {route.tripTime}
-      </p>
-
-      <p>About: {route.message}</p>
-      <p>Vehicle: {route.carDescription}</p>
-
-      <p>
-        <b>Frequency:</b> {route.frequency}
-      </p>
-      <p>
-        <b>Seating:</b> {route.capacity} <b>Taken:</b> {route.passengers.length}
-      </p>
-
-      {accessAllPassengers.current && (
-        <>
-          <p>
-            <b>PASSENGERS:</b>
-          </p>
-          <section>
-            {accessAllPassengers.current.map((user: User, index: number) => {
-              return (
-                <div key={index}>
-                  <li>{user.name}</li>
-                  <button
-                    onClick={() => handleDeclinePax(user.email, route._id)}
-                  >
-                    Decline
-                  </button>
-                </div>
-              );
-            })}
+          <p className="frequency">{route.frequency}</p>
+          <div className="card__destination">
+            <b>&#10606;</b>
+            <div>
+              <p>
+                <b>{route.timeFromA}</b> {route.pointA}{' '}
+              </p>
+              <p>
+                <b>{route.timeFromB}</b> {route.pointB}{' '}
+              </p>
+            </div>
+          </div>
+          <section className="card__extra-info">
+            <p>
+              <span>Reserved:</span> {route.passengers.length} <span>/</span>{' '}
+              {route.capacity}
+            </p>
           </section>
-        </>
-      )}
 
-      <button onClick={handleDeleteRoute}>REMOVE</button>
+          {accessAllPassengers.current && (
+            <>
+              <div className="cards__passengers">
+                <span>Passengers:</span>
+              </div>
+              {accessAllPassengers.current.map((user: User, index: number) => {
+                return (
+                  <div key={index} className="cards__passengers__unit">
+                    <p>{user.name}</p>
+                    <button
+                      onClick={() => handleDeclinePax(user.email, route._id)}
+                    >
+                      Decline
+                    </button>
+                  </div>
+                );
+              })}
+            </>
+          )}
+        </div>
+      </div>
     </>
   );
 }

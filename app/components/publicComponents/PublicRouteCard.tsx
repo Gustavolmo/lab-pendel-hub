@@ -1,5 +1,5 @@
 import { addPassengerToRoute } from '@/library/private/private';
-import { useSession } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import '../styles/RouteCard.css';
 
 export default function PublicRouteCard({ route, click, setClick }: any) {
@@ -11,7 +11,7 @@ export default function PublicRouteCard({ route, click, setClick }: any) {
       setClick(!click);
       addPassengerToRoute(session?.user?.email, String(route._id));
     } else {
-      console.log('NOT AUTHORIZED');
+      signIn()
     }
   };
 

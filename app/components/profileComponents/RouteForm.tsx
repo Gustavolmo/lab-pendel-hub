@@ -173,9 +173,7 @@ export default function routeForm() {
             className="input"
           />
 
-            <h2 className='form-seats-title'>
-              Seats
-            </h2>
+            <h2 className="form__seats-title">Seats</h2>
             <input
               type="number"
               min={1}
@@ -185,7 +183,6 @@ export default function routeForm() {
               value={formData.capacity}
               className="input"
             />
-
 
           <textarea
             id=""
