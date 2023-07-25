@@ -1,6 +1,4 @@
-<div style="color: #2B2D42">
 # Welcome to Pendel Hub - Your Commuting Disruptor
-</div>
 <div style="background-color: #2B2D42; padding: 20px; color: #FEF4E4">
 <div>
   <img src="app/public/logo.png" alt="CommuteConnect Logo" width="200" style="margin: auto;">
