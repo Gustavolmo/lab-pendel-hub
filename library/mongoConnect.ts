@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const pw = 'salt123'; // MOVE TO .ENV
+const pw = process.env.MONGO_PW
 const uri = `mongodb+srv://gustavolmo:${pw}@logacluster.fpmn1bl.mongodb.net/?retryWrites=true&w=majority`;
 
 export const client: MongoClient = new MongoClient(uri, {
