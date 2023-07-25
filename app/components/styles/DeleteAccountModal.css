@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Montserrat:wght@100;500&display=swap');
+*{
+   
+}
+#btn-delete{
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    background-color: #2B2D42;
+    border: .5px solid #FFBE0B;
+    color: #FFBE0B;
+    text-transform: capitalize;
+    padding: 4px 4px;
+    margin: 0 4px;
+    min-width: 80px;
+    border-radius: 6px;
+}
+#btn-delete:hover{
+    background-color: #FFBE0B;
+    color:#2B2D42;
+}
+#modal-modal-title{
+font-family: lato sans-serif;
+   display: flex;
+   justify-content: center;
+}
+#modal-modal-description{
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}

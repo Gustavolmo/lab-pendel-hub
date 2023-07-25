@@ -1,34 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Welcome to CommuteConnect - Your Commuting Disruptor
+
+![CommuteConnect Logo](app/public/logo.png)
+
+CommuteConnect is a groundbreaking public transportation app that revolutionizes how people commute. Users can create, share, and subscribe to routes, fostering a community-driven approach to transportation. The primary aim of the app is to alleviate the strain on public transportation and provide commuting solutions for areas with limited access to transit services. Additionally, users can post their specific commuting needs, helping identify routes with high demand and aiding government agencies in enhancing public transportation across Sweden.
+
+## Features
+
+- **Create Routes**: Users can easily create their own routes, specifying the starting point, destination, and any required stops. This empowers users to share their daily commuting routes or any other routes they wish to create.
+
+- **Subscribe to Routes**: Users can subscribe to routes created by others, becoming passengers on these routes. This feature fosters a collaborative community where people can share rides to common destinations.
+
+- **Post Requested Routes**: Users with specific commuting needs can post requested routes. These routes can help identify high-demand areas and connect commuters with similar needs.
+
+- **Contribute to Public Transportation Planning**: The data collected through the app can be invaluable for government agencies responsible for public transportation. By identifying high-demand areas, the app aids in optimizing existing transportation services and designing new ones.
 
 ## Getting Started
 
-First, run the development server:
+To access the live version of CommuteConnect, simply visit [www.commuteconnect.com](https://www.commuteconnect.com) and start using the app right away.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Contributing
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+We welcome contributions to enhance CommuteConnect further. If you encounter any issues or have ideas for improvements, please open an issue in this repository or reach out to our team directly.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## License
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Learn More
+## Contact Us
 
-To learn more about Next.js, take a look at the following resources:
+If you have any questions, suggestions, or feedback, feel free to contact our team at contact@commuteconnect.com.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Thank you for being a part of CommuteConnect and contributing to more sustainable commuting solutions in Sweden! We appreciate your support and hope you find this app helpful in your daily commute.

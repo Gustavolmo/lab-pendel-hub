@@ -10,6 +10,27 @@
   width: 360px;
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
   border-left: 2px solid #fef4e4;
-  border-image: linear-gradient(to bottom, #fd5b35, #ffbb4c) 1;
+  border-image: linear-gradient(to bottom, #fd5b35, #FFBE0B) 1;
+  border-image-slice: 0 0 1 1;
+  border-image-width: 1px;
+  animation: moveBorder 4s linear infinite;
 }
 
+  
+@keyframes moveBorder {
+  0% {
+    border-image-source: linear-gradient(to right, #fd5b35, #FFBE0B);
+  }
+  25% {
+    border-image-source: linear-gradient(to top, #fd5b35, #FFBE0B);
+  }
+  50% {
+    border-image-source: linear-gradient(to left, #fd5b35, #FFBE0B);
+  }
+  75% {
+    border-image-source: linear-gradient(to bottom, #fd5b35, #FFBE0B);
+  }
+  100% {
+    border-image-source: linear-gradient(to right, #fd5b35, #FFBE0B);
+  }
+}
