@@ -1,8 +1,8 @@
-# Welcome to CommuteConnect - Your Commuting Disruptor
+# Welcome to Pendel Hub - Your Commuting Disruptor
 
-![CommuteConnect Logo](app/public/logo.png)
+![Pendel Hub Logo]<img src="app/public/logo.png" alt="CommuteConnect Logo" width="200">
 
-CommuteConnect is a groundbreaking public transportation app that revolutionizes how people commute. Users can create, share, and subscribe to routes, fostering a community-driven approach to transportation. The primary aim of the app is to alleviate the strain on public transportation and provide commuting solutions for areas with limited access to transit services. Additionally, users can post their specific commuting needs, helping identify routes with high demand and aiding government agencies in enhancing public transportation across Sweden.
+Pendel Hub is a groundbreaking public transportation app that revolutionizes how people commute. Users can create, share, and subscribe to routes, fostering a community-driven approach to transportation. The primary aim of the app is to alleviate the strain on public transportation and provide commuting solutions for areas with limited access to transit services. Additionally, users can post their specific commuting needs, helping identify routes with high demand and aiding government agencies in enhancing public transportation across Sweden.
 
 ## Features
 
@@ -16,11 +16,11 @@ CommuteConnect is a groundbreaking public transportation app that revolutionizes
 
 ## Getting Started
 
-To access the live version of CommuteConnect, simply visit [www.commuteconnect.com](https://www.commuteconnect.com) and start using the app right away.
+To access the live version of Pendel Hub, simply visit [www.commuteconnect.com](https://www.commuteconnect.com) and start using the app right away.
 
 ## Contributing
 
-We welcome contributions to enhance CommuteConnect further. If you encounter any issues or have ideas for improvements, please open an issue in this repository or reach out to our team directly.
+We welcome contributions to enhance Pendel Hub further. If you encounter any issues or have ideas for improvements, please open an issue in this repository or reach out to our team directly.
 
 ## License
 
@@ -30,4 +30,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you have any questions, suggestions, or feedback, feel free to contact our team at contact@commuteconnect.com.
 
-Thank you for being a part of CommuteConnect and contributing to more sustainable commuting solutions in Sweden! We appreciate your support and hope you find this app helpful in your daily commute.
+Thank you for being a part of Pendel Hub and contributing to more sustainable commuting solutions in Sweden! We appreciate your support and hope you find this app helpful in your daily commute.
