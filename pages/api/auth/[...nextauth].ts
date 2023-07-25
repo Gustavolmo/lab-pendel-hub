@@ -4,8 +4,8 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const id = ''+process.env.GOOGLE_ID
-const secret = ''+process.env.GOOGLE_SECRET
+const id = String(process.env.GOOGLE_ID)
+const secret = String(process.env.GOOGLE_SECRET)
 
 export default NextAuth({
   providers: [
