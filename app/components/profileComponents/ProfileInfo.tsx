@@ -4,8 +4,8 @@ import DeleteAccountModal from './DeleteAccountModal';
 import '../styles/ProfileInfo.css';
 import PassengerCount from './PassengerCount';
 
-export default function profileInfo() {
-  const { data: session, status } = useSession();
+export default function ProfileInfo() {
+  const { data: session } = useSession();
 
   return (
     <>

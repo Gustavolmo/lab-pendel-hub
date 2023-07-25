@@ -11,9 +11,8 @@ import LoginButton from '../components/LoginButton';
 import UserImage from '../components/UserImage';
 import PassengerCount from '../components/profileComponents/PassengerCount';
 import Logo from '../components/profileComponents/Logo';
-import Loading from '../components/Loading';
 
-export default function page() {
+export default function Page() {
   const { data: session, status } = useSession();
   const isAuthenticated = session !== null && status === 'authenticated';
   const [selection, setSelection] = useState('Create');

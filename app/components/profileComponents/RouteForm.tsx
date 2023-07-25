@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import '../styles/RouteForm.css';
 
-export default function routeForm() {
+export default function RouteForm() {
   const { data: session, status } = useSession();
   const date = String(new Date().toLocaleDateString());
   const [isChecked, setIsChecked] = useState(false);

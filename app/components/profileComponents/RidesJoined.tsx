@@ -7,7 +7,7 @@ import {
 } from '@/library/private/private';
 import PrivateJoinedCard from './PrivateJoinedCard';
 
-export default function ridesJoined() {
+export default function RidesJoined() {
   const { data: session, status } = useSession();
   const accessUserRoute = useRef([]);
   const [inProcess, setInProcess] = useState(false);

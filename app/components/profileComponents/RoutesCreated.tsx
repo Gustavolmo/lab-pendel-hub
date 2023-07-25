@@ -5,8 +5,8 @@ import { getUserOfferedRoutes } from '@/library/private/private';
 import { Ride } from '@/library/types/types';
 import PrivateOfferRouteCard from './PrivateOfferRouteCard';
 
-export default function routesCreated() {
-  const { data: session, status } = useSession();
+export default function RoutesCreated() {
+  const { data: session } = useSession();
   const accessUserRoute = useRef([]);
   const [inProcess, setInProcess] = useState(false);
   const [click, setClick] = useState(false);
