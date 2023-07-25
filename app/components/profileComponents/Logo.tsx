@@ -7,7 +7,7 @@ export default function Logo() {
   return (
     <header className="nav__header">
       <div className="nav__container">
-        <a href="http://localhost:3000/">
+        <a href="/">
           <Image src={logo} alt="LOGO" className="logo-image" />
         </a>
       </div>

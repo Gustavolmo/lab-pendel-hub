@@ -20,7 +20,7 @@ export default function LoginButton() {
         >
           Sign Out
         </button>
-        <Link className='react-link' href={'http://localhost:3000/profile'}>
+        <Link className='react-link' href={'/profile'}>
           <button>My Account</button>
         </Link>
         <UserImage user={session.user} />

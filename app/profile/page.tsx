@@ -28,7 +28,7 @@ export default function Page() {
           <Logo />
           <PassengerCount />
           <div className="landing-page-nav__contents">
-            <Link href={'http://localhost:3000'}>
+            <Link href={'/'}>
               <button className="standard-button">Home</button>
             </Link>
             <UserImage user={session?.user} />
