@@ -8,7 +8,7 @@ export default function PassengerCount() {
   const [inProcess, setInProcess] = useState(false);
   const [call, setCall] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const accessPaxCount = useRef<number>(0);
+  const accessPaxCount = useRef<number>(Number(localStorage.getItem('pax')) | 0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -23,6 +23,7 @@ export default function PassengerCount() {
             alert('You got a new passenger');
           }
           accessPaxCount.current = paxCount;
+          localStorage.setItem('pax', String(paxCount)) //TEST
         }
         setInProcess(false);
         setCall(!call);
