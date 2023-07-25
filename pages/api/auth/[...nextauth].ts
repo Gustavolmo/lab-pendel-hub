@@ -13,7 +13,8 @@ export default NextAuth({
       clientId: id,
       clientSecret: secret
     })
-  ]
+  ],
+  secret: 'pendel-hub'
 })
 
  
