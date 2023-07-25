@@ -1,7 +1,7 @@
 # Welcome to Pendel Hub - Your Commuting Disruptor
 
-<div style="display: flex; justify-content: center;">
-  <img src="app/public/logo.png" alt="CommuteConnect Logo" width="200">
+<div>
+  <img src="app/public/logo.png" alt="CommuteConnect Logo" width="200" style="margin: auto;">
 </div>
 
 Pendel Hub is a groundbreaking public transportation app that revolutionizes how people commute. Users can create, share, and join routes, fostering a community-driven approach to transportation. The primary aim of the app is to alleviate the strain on public transportation and provide commuting solutions for areas with limited access to transit services. Additionally, users can post their specific commuting needs, helping identify routes with high demand and aiding government agencies in enhancing public transportation across Sweden.
