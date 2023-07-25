@@ -18,7 +18,7 @@ Pendel Hub is a groundbreaking public transportation app that revolutionizes how
 
 ## Getting Started
 
-To access the live version of Pendel Hub, simply visit <a href='pendel-hub.vercel.app'>Pendel Hub</a> and start using the app right away.
+To access the live version of Pendel Hub, simply visit <a href='https://pendel-hub.vercel.app'>Pendel Hub</a> and start using the app right away.
 
 ## Contributing
 
