@@ -4,14 +4,14 @@ import { useSession } from 'next-auth/react';
 import React, { useEffect, useRef, useState } from 'react';
 
 export default function PassengerCount() {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const [inProcess, setInProcess] = useState(false);
   const [call, setCall] = useState(false);
-  const [isHovered, setIsHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
   const accessPaxCount = useRef<number>(0);
 
   useEffect(() => {
-    setTimeout(()=>{
+    setTimeout(() => {
       const asyncByPass = async () => {
         if (inProcess) {
           return;
@@ -25,42 +25,39 @@ export default function PassengerCount() {
           accessPaxCount.current = paxCount;
         }
         setInProcess(false);
-        setCall(!call)
+        setCall(!call);
       };
       asyncByPass();
-    }, 2000)
+    }, 2000);
   }, [call]);
 
   useEffect(() => {
-      const asyncByPass = async () => {
-        if (inProcess) {
-          return;
-        }
-        setInProcess(true);
-        if (session) {
-          const paxCount = await getAllUserPax(session?.user?.email);
-          accessPaxCount.current = paxCount;
-        }
-        setInProcess(false);
-      };
-      asyncByPass();
+    const asyncByPass = async () => {
+      if (inProcess) {
+        return;
+      }
+      setInProcess(true);
+      if (session) {
+        const paxCount = await getAllUserPax(session?.user?.email);
+        accessPaxCount.current = paxCount;
+      }
+      setInProcess(false);
+    };
+    asyncByPass();
   }, []);
 
   if (accessPaxCount.current && session) {
     return (
-    <>
-      <div
-        className="total-pax"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-   
-        {isHovered ? `Total Passengers: ${accessPaxCount.current}` : ' 👤'}
-        {!isHovered?` ${accessPaxCount.current}`: '👤 ' }
-  
-  
-      </div>
-    </>
-  );
-}
+      <>
+        <div
+          className="total-pax"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          {isHovered ? `Total Passengers: ${accessPaxCount.current}` : ' 👤'}
+          {!isHovered ? `${accessPaxCount.current}` : ' 👤'}
+        </div>
+      </>
+    );
+  }
 }
