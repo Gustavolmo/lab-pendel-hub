@@ -1,6 +1,6 @@
 import { addPassengerToRoute } from '@/library/private/private';
 import { signIn, useSession } from 'next-auth/react';
-import '../styles/RouteCard.css';
+import '../styles/RouteCardExpandable.css';
 
 export default function PublicRouteCard({ route, click, setClick }: any) {
   const { data: session, status } = useSession();
@@ -41,25 +41,25 @@ export default function PublicRouteCard({ route, click, setClick }: any) {
           </div>
         </div>
 
-        <section className="card__extra-info">
-          <p>
-            <span>Travel Time:</span> {route.tripTime}
-          </p>
+          <section className="card__extra-info--expandable">
+            <p>
+              <span>Travel Time:</span> {route.tripTime}
+            </p>
 
-          <p>
-            {' '}
-            <span>About:</span> {route.message}
-          </p>
-          <p>
-            {' '}
-            <span>Vehicle:</span> {route.carDescription}
-          </p>
+            <p>
+              {' '}
+              <span>About:</span> {route.message}
+            </p>
+            <p>
+              {' '}
+              <span>Vehicle:</span> {route.carDescription}
+            </p>
 
-          <p>
-            <span>Reserved:</span> {route.passengers.length} <span>/</span>{' '}
-            {route.capacity}
-          </p>
-        </section>
+            <p>
+              <span>Reserved:</span> {route.passengers.length} <span>/</span>{' '}
+              {route.capacity}
+            </p>
+          </section>
 
         <div className="card__bottom-info">
           <h2>{route.fare} kr / &#x1F464;</h2>

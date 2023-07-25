@@ -46,7 +46,7 @@ export default function PublicAvailableRoutes() {
       <>
         {accessUserRoute.current.map((route: Ride, index: number) => {
           return (
-            <div className="info-card" key={`${index}_${route.createdDate}`}>
+            <div className="info-card--expandable" key={`${index}_${route.createdDate}`}>
               <PublicRouteCard
                 route={route}
                 click={click}

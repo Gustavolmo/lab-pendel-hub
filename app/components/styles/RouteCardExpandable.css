@@ -4,7 +4,7 @@ span {
   color: #ffbb4c;
 }
 
-.info-card {
+.info-card--expandable {
   font-weight: 300;
   background: rgba(31, 31, 32, .6);
   color: #fef4e4;
@@ -16,7 +16,7 @@ span {
   min-height: 300px;
 }
 
-.info-card:hover {
+.info-card--expandable:hover {
   transform: scale(0.98);
   border-radius: 12px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.06);
@@ -24,29 +24,21 @@ span {
 }
 
 
-
-
-.card__extra-info {
+.card__extra-info--expandable {
   background-color: #373737;
   padding: .4rem;
   border-radius: 6px;
-  /* opacity: 0;
-  transition: ease-in .2s; */
+  position: absolute;
+  width: 358px;
+  opacity: 0;
+  transition: ease-in .2s;
 }
 
-/* .info-card:hover .card__extra-info {
+.info-card--expandable:hover .card__extra-info--expandable {
   transition: ease-in .2s;
   opacity: 1;
 }
 
-
-
-
-
-.card__more-info-button:hover {
-  cursor: pointer;
-  text-decoration: underline;
-} */
 
 
 

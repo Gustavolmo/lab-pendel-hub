@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Montserrat:wght@100;500&display=swap');
-*{
-   
-}
+
 #btn-delete{
     font-family: 'Lato', sans-serif;
     font-size: 14px;
@@ -10,7 +8,7 @@
     color: #FFBE0B;
     text-transform: capitalize;
     padding: 4px 4px;
-    margin: 0 4px;
+    margin: 40px 4px 0;
     min-width: 80px;
     border-radius: 6px;
 }

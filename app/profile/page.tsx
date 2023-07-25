@@ -36,6 +36,11 @@ export default function page() {
           </div>
         </nav>
 
+        <header className='profile-header'>
+        <img className='welcome-profile-image' src={session?.user?.image?.toString()} />
+          <h1>Welcome, {session.user?.name}</h1>
+        </header>
+
         <main className="profile-main">
           <section className="">
             <button
@@ -81,12 +86,12 @@ export default function page() {
             <button
               onClick={(e: any) => handleSelection(e.target.textContent)}
               className={
-                selection === 'My Info'
+                selection === 'Personal Info'
                   ? 'standard-button--selected'
                   : 'standard-button'
               }
             >
-              My Info
+              Personal Info
             </button>
           </section>
 
@@ -94,7 +99,7 @@ export default function page() {
             {selection === 'Create' && <RouteForm />}
             {selection === 'My Routes' && <RoutesCreated />}
             {selection === 'Joined Rides' && <RidesJoined />}
-            {selection === 'My Info' && <ProfileInfo />}
+            {selection === 'Personal Info' && <ProfileInfo />}
             {selection === 'My Requests' && <PrivateRideRequest />}
           </section>
         </main>

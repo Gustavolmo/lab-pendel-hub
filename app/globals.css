@@ -25,7 +25,7 @@ html, body {
 
 button,
 .standard-button {
-  font-weight: 400;
+  font-weight: 300;
   font-size: 14px;
   color: #FFBE0B;
   border: .5px solid #FFBE0B;
@@ -163,4 +163,20 @@ img,
 
 .landing-page__search-area #landing-page__search-input {
   margin: 0;
+}
+
+.profile-header {
+  font-weight: lighter;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #FEF4E4;
+  font-size: 20px;
+  margin: 32px 0;
+}
+
+.welcome-profile-image {
+  margin-bottom: 8px;
+  width: 100px;
+  height: 100px;
 }
