@@ -1,5 +1,7 @@
+<div style="color: #2B2D42">
 # Welcome to Pendel Hub - Your Commuting Disruptor
-
+</div>
+<div style="background-color: #2B2D42; padding: 20px; color: #FEF4E4">
 <div>
   <img src="app/public/logo.png" alt="CommuteConnect Logo" width="200" style="margin: auto;">
 </div>
@@ -38,3 +40,4 @@ This project is licensed under the MIT License
 If you have any questions, suggestions, or feedback, feel free to contact our team at macovei.a2@gmail.com & lmo.gustavo@gmail.com
 
 Thank you for being a part of Pendel Hub and contributing to more sustainable commuting solutions in Sweden! We appreciate your support and hope you find this app helpful in your daily commute.
+</div>
