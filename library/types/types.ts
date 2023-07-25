@@ -20,7 +20,7 @@ export type Ride = {
   timeFromA: string;
   timeFromB: string;
   tripTime: string;
-  passengers: string[];
+  passengers: [];
   capacity: number;
   frequency: string;
   message: string;

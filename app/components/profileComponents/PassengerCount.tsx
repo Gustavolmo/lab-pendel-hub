@@ -7,7 +7,7 @@ export default function PassengerCount() {
   const { data: session, status } = useSession();
   const [inProcess, setInProcess] = useState(false);
   const [call, setCall] = useState(false);
-  const accessPaxCount = useRef<number>();
+  const accessPaxCount = useRef<number>(0);
 
   useEffect(() => {
     setTimeout(()=>{

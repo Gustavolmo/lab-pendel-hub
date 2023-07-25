@@ -209,9 +209,12 @@ export const leaveAllJoinedRide = async (
     .db(databaseName)
     .collection(collectionNameRides);
 
+  const filter = { passengers: passengerId };
+  const update: any = { $pull: { passengers: passengerId } };
+
   await rideCollection.updateMany(
-    { passengers: passengerId },
-    { $pull: { passengers: passengerId } } // THIS ERROR MAKES NO SENSE
+    { filter },
+    { update }
   );
 };
 
@@ -249,12 +252,12 @@ export const getAllPassengers = async (uniqueId: string) => {
     _id: new ObjectId(uniqueId),
   });
 
-  if(result) {
+  if (result) {
     const paxArray = (result?.passengers).map((id: string) => new ObjectId(id));
     const userCollection = client
       .db(databaseName)
       .collection(collectionNameUsers);
-  
+
     const paxNames = await userCollection
       .find({ _id: { $in: paxArray } })
       .toArray();
@@ -271,13 +274,17 @@ export const getAllUserPax = async (userEmail: string | undefined | null) => {
 
   const userId = String(userData?._id);
 
-  const rideCollection = client.db(databaseName).collection(collectionNameRides)
-  const allDrivingRoutes = await rideCollection.find({driverId: userId}).toArray()
+  const rideCollection = client
+    .db(databaseName)
+    .collection(collectionNameRides);
+  const allDrivingRoutes = await rideCollection
+    .find({ driverId: userId })
+    .toArray();
 
   let paxCount = 0;
-  allDrivingRoutes.forEach(route => {
-    paxCount += route.passengers.length
-  })
+  allDrivingRoutes.forEach((route) => {
+    paxCount += route.passengers.length;
+  });
 
-  return paxCount
+  return paxCount;
 };
