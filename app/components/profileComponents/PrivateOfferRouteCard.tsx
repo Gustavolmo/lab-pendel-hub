@@ -66,6 +66,7 @@ export default function PrivateOfferRouteCard({ route, setClick, click, call }: 
               <span>Reserved:</span> {route.passengers.length} <span>/</span>{' '}
               {route.capacity}
             </p>
+            <h2>Income per day {(route.fare)*(route.passengers.length)} kr / &#x1F464;</h2>
           </section>
 
           {accessAllPassengers.current && (

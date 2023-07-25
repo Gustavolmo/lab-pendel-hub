@@ -51,6 +51,7 @@ export default function PrivateJoinedCard({ route, setClick, click }: any) {
               {route.capacity}
             </p>
           </section>
+          <h2>{route.fare} kr / &#x1F464;</h2>
           <h2>{route.driverName}</h2>
         </div>
       </div>

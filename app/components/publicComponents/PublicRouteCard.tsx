@@ -40,6 +40,7 @@ export default function PublicRouteCard({ route, click, setClick }: any) {
             </p>
           </div>
         </div>
+
         <section className="card__extra-info">
           <p>
             <span>Travel Time:</span> {route.tripTime}
@@ -60,11 +61,11 @@ export default function PublicRouteCard({ route, click, setClick }: any) {
           </p>
         </section>
 
-        <div className='card__bottom-info'>
+        <div className="card__bottom-info">
+          <h2>{route.fare} kr / &#x1F464;</h2>
           <h2>{route.driverName}</h2>
-          <i className='card__date'>{route.availableFromDate}</i>
+          <i className="card__date">{route.availableFromDate}</i>
         </div>
-        
       </div>
     </div>
   );

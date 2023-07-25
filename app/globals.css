@@ -147,3 +147,20 @@ img,
 .signin {
   background-color: black;
 }
+
+.landing-page__search-area {
+  display: flex;
+  font-weight: 400;
+  font-size: 14px;
+  color: #FFBE0B;
+  border: none;
+  padding: 4px 4px;
+  margin: 0 4px 32px;
+  min-width: 80px;
+  border-radius: 6px;
+  justify-content: center;
+}
+
+.landing-page__search-area #landing-page__search-input {
+  margin: 0;
+}

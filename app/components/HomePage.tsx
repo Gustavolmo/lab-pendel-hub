@@ -46,6 +46,19 @@ export default function HomePage() {
   return (
     <>
       <section className="landing-page-main__section">
+
+
+
+
+        {/* <section className="landing-page__search-area">
+          <input type="text" id="landing-page__search-input" />
+          <button>&#128270; offers</button>
+          <button>&#128270; requests</button>
+        </section> */}
+
+
+
+
         <div className="">
           <button
             onClick={(e: any) => handleSelection(e.target.textContent)}
@@ -70,13 +83,11 @@ export default function HomePage() {
           </button>
         </div>
 
-            <section>
-              {/* SEARCH BAR COMPONENT */}
-            </section>
-
         <section className="public-cards">
           {selection === 'Routes' && <PublicAvailableRoutes />}
           {selection === 'Requests' && <PublicRequestedRoutes />}
+          {/* search request */}
+          {/* search routes  */}
         </section>
       </section>
     </>

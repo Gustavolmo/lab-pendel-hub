@@ -124,18 +124,6 @@ export default function routeForm() {
           />
 
           <input
-            placeholder="available from"
-            type="date"
-            min="2023-01-01"
-            max="2027-12-31"
-            required
-            name="availableFromDate"
-            onChange={handleChange}
-            value={formData.availableFromDate}
-            className="input"
-          />
-
-          <input
             type="text"
             placeholder="departure time inboud"
             required
@@ -146,23 +134,25 @@ export default function routeForm() {
           />
           <input
             type="text"
-            placeholder="departure time outbound"
+            placeholder="departure time return"
             required
             name="timeFromB"
             onChange={handleChange}
             value={formData.timeFromB}
             className="input"
           />
-          
-          {!isChecked &&<input
-            type="text"
-            placeholder="travel time"
-            required
-            name="tripTime"
-            onChange={handleChange}
-            value={formData.tripTime}
-            className="input"
-          />}
+
+          {!isChecked && (
+            <input
+              type="text"
+              placeholder="travel time"
+              required
+              name="tripTime"
+              onChange={handleChange}
+              value={formData.tripTime}
+              className="input"
+            />
+          )}
 
           <input
             type="text"
@@ -174,16 +164,43 @@ export default function routeForm() {
             className="input"
           />
 
-            <h2 className="form__seats-title">Seats</h2>
-            <input
-              type="number"
-              min={1}
-              max={20}
-              name="capacity"
-              onChange={handleChange}
-              value={formData.capacity}
-              className="input"
-            />
+          <h2 className="form__seats-title">Seats</h2>
+          <input
+            type="number"
+            min={1}
+            max={20}
+            name="capacity"
+            onChange={handleChange}
+            value={formData.capacity}
+            className="input"
+          />
+
+          {!isChecked && (
+            <>
+              <h2 className="form__seats-title">SEK per person / day</h2>
+              <input
+                type="number"
+                min={0}
+                name="fare"
+                onChange={handleChange}
+                value={formData.fare}
+                className="input"
+              />
+            </>
+          )}
+
+          <h2 className="form__seats-title">Route Available From</h2>
+          <input
+            placeholder="available from"
+            type="date"
+            min="2023-01-01"
+            max="2027-12-31"
+            required
+            name="availableFromDate"
+            onChange={handleChange}
+            value={formData.availableFromDate}
+            className="input"
+          />
 
           <textarea
             id=""
@@ -196,16 +213,18 @@ export default function routeForm() {
             value={formData.message}
           ></textarea>
 
-          {!isChecked && <textarea
-            id=""
-            cols={30}
-            rows={3}
-            placeholder="Describe your vehicle"
-            required
-            name="carDescription"
-            onChange={handleChange}
-            value={formData.carDescription}
-          ></textarea> }
+          {!isChecked && (
+            <textarea
+              id=""
+              cols={30}
+              rows={3}
+              placeholder="Describe your vehicle"
+              required
+              name="carDescription"
+              onChange={handleChange}
+              value={formData.carDescription}
+            ></textarea>
+          )}
 
           <button className="submit-button" type="submit">
             Submit
