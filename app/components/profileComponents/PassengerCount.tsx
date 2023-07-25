@@ -7,6 +7,7 @@ export default function PassengerCount() {
   const { data: session, status } = useSession();
   const [inProcess, setInProcess] = useState(false);
   const [call, setCall] = useState(false);
+  const [isHovered, setIsHovered] = useState(false)
   const accessPaxCount = useRef<number>(0);
 
   useEffect(() => {
@@ -47,12 +48,19 @@ export default function PassengerCount() {
 
   if (accessPaxCount.current && session) {
     return (
-      <>
-        <div className="total-pax">
-          
-        &#x1F464; {accessPaxCount.current}
-        </div>
-      </>
-    );
-  }
+    <>
+      <div
+        className="total-pax"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+   
+        {isHovered ? `Total Passengers: ${accessPaxCount.current}` : ' 👤'}
+        {!isHovered?` ${accessPaxCount.current}`: '👤 ' }
+  
+  
+      </div>
+    </>
+  );
+}
 }
