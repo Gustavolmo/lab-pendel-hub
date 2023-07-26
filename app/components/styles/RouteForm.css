@@ -215,6 +215,7 @@ textarea:focus{
   .submit-button {
     margin: auto;
     width: 300px;
+    margin-bottom: 16px;
   }
 }
 
