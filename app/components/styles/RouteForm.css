@@ -185,12 +185,12 @@ textarea:focus{
   }
 
   input[type=text] {
-    width: 300;
+    width: 300px;
     margin: auto;
   }
 
-  input[type=text] {
-    width: 300;
+  input[type=number] {
+    width: 300px;
     margin: auto;
   }
 
@@ -203,7 +203,7 @@ textarea:focus{
   }
 
   textarea {
-    width: 300;
+    width: 300px;
     margin: auto;
   }
 
@@ -216,5 +216,7 @@ textarea:focus{
   .standard-button, button {
     min-width: 40px;
     font-size: 10px;
+    border: none;
+    margin: 0;
   }
 }
