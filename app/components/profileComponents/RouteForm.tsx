@@ -85,7 +85,7 @@ export default function RouteForm() {
 
   return (
     <section className="form">
-      <h1>Create or Request a Route</h1>
+      <h1 className="form__title">Create or Request a Route</h1>
       <div>
         <form className="input" onSubmit={formHandler}>
           <div className="form__div-title">
