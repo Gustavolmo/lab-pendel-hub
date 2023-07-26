@@ -105,7 +105,12 @@ button:hover,
   margin: 0 0 0 8px;
 }
 
-
+.welcome-profile-image {
+  margin-bottom: 8px;
+  width: 100px;
+  height: 100px;
+  border-radius: 999px;
+}
 
 .total-pax {
   position: absolute;
@@ -175,11 +180,4 @@ button:hover,
   color: #FEF4E4;
   font-size: 20px;
   margin: 32px 0;
-}
-
-.welcome-profile-image {
-  margin-bottom: 8px;
-  width: 100px;
-  height: 100px;
-  border-radius: 999;
 }
