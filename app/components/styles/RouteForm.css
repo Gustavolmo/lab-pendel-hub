@@ -179,3 +179,42 @@ textarea:focus{
   box-shadow: o 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 600px) {
+  .form {
+    width: 350px;
+  }
+
+  input[type=text] {
+    width: 300;
+    margin: auto;
+  }
+
+  input[type=text] {
+    width: 300;
+    margin: auto;
+  }
+
+  .form_seats-title {
+    margin-left: 7rem;
+  }
+
+  .switch {
+    margin: 0 0 0 7rem;
+  }
+
+  textarea {
+    width: 300;
+    margin: auto;
+  }
+
+  .submit-button {
+    width: 300px;
+  }
+}
+
+@media (max-width: 420px) {
+  .standard-button, button {
+    min-width: 40px;
+    font-size: 10px;
+  }
+}

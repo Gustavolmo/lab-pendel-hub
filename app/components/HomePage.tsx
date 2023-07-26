@@ -76,8 +76,6 @@ export default function HomePage() {
         <section className="public-cards">
           {selection === 'Routes' && <PublicAvailableRoutes />}
           {selection === 'Requests' && <PublicRequestedRoutes />}
-          {/* search request */}
-          {/* search routes  */}
         </section>
       </section>
     </>
