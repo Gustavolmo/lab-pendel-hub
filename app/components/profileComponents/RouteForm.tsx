@@ -85,7 +85,7 @@ export default function RouteForm() {
 
   return (
     <section className="form">
-      <h1 className="form__title">Create or Request a Route</h1>
+      <h1 className="form__title">CREATE OR REQUEST A ROUTE</h1>
       <div>
         <form className="input" onSubmit={formHandler}>
           <div className="form__div-title">
@@ -101,7 +101,7 @@ export default function RouteForm() {
               className="switch"
             />
             <h1 className="form__title">
-              {isChecked ? 'REQUEST ROUTE' : 'CREATE ROUTE'}
+              {isChecked ? 'Request Route' : 'Create Route'}
             </h1>
           </div>
 
