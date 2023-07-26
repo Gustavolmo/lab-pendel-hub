@@ -17,10 +17,10 @@
 }
 
 html, body {
-  background-color: #2B2D42;
+  background-color: #2b2d42;
   color: #1f1f20;
   box-sizing: border-box;
-  padding: 50px 8px;
+  padding: 34px 0px;
 }
 
 button,
@@ -96,7 +96,7 @@ button:hover,
   margin: 0 8px;
 }
 
-img,
+/* img, */
 .logo-image,
 .profile-image {
   height: 32px;

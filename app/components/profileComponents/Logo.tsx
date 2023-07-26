@@ -2,6 +2,7 @@ import Image from 'next/image';
 import logo from '../../../app/public/logo.png';
 import React from 'react';
 import '../styles/Logo.css';
+import HeroHeader from '../publicComponents/HeroHeader';
 
 export default function Logo() {
   return (

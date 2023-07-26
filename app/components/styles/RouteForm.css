@@ -45,7 +45,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 600px;
+  max-width: 600px; /* CHANGED */
   border-radius: 6px;
   padding-top: 1.6rem ;
   margin-top: 4rem;
@@ -54,7 +54,7 @@
   background-color: transparent;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   border-image-slice: 0 0 1 1;
-  border-image-width: 1px;
+  border-image-width: 2px;
   animation: moveBorder 4s linear infinite;
 }
   
@@ -108,7 +108,7 @@ input[type='text'] {
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
   border-radius: 6px;
   padding: 8px;
-  width: 500px;
+  max-width: 500px; /* CHANGED */
   margin: 0.5rem;
   border: 1px solid #d9d9d9;
 }
@@ -125,23 +125,24 @@ input[type='date'] {
   border-radius: 6px;
   font-family: 'Lato', sans-serif;
   padding: 8px;
-  width: 500px;
+  max-width: 500px; /* CHANGED */
   margin: 0.5rem;
 }
+
 input[type='number'] {
   display: block;
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
   border-radius: 6px;
   font-family: 'Lato', sans-serif;
   padding: 8px;
-  width: 500px;
+  max-width: 500px; /* CHANGED */
   margin: 0.5rem;
 }
 textarea {
   margin: 0.5rem;
   resize: none;
   display: block;
-  width: 500px;
+  max-width: 500px; /* CHANGED */
   padding: 15px;
   border-radius: 6px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
@@ -157,7 +158,7 @@ textarea:focus{
 .submit-button {
   align-self: center;
   justify-self: center;
-  width: 500px;
+  max-width: 500px; /* CHANGED */
   margin: 1rem .5rem;
   padding: 0.5rem 0;
   font-size: 1.2rem;
@@ -167,16 +168,7 @@ textarea:focus{
   border: none;
   background-color: #FEF4E4;
 }
-/* .submit-button{
-  padding: 1rem 2rem;
-  text-transform: uppercase;
-  width: 400px;;
-  display: inline-block;
-  border-radius:6px;
- 
- 
-  font-size: 1rem;;
-} */
+
 .submit-button:hover {
   transform: translateY(-2px);
   color: #FEF4E4;

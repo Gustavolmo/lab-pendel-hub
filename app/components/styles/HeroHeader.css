@@ -1,0 +1,22 @@
+.hero-header {
+  /* outline: dashed red; */
+  background-image: linear-gradient(
+      to right,
+      rgba(43, 45, 66),
+      rgba(136, 145, 183, 0.3)
+    ),
+    url('../../public/banner.jpg');
+  height: 250px;
+  width: 100%;
+  background-size: cover;
+  margin-bottom: 32px;
+  color: #FEF4E4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 64px;
+  font-size: 20px;
+  font-weight: 100;
+  font-family: 'Montserrat', sans-serif;
+}

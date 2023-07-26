@@ -6,6 +6,7 @@ import React, { Suspense, useEffect, useState } from 'react';
 import PublicAvailableRoutes from './publicComponents/PublicAvailableRoutes';
 import PublicRequestedRoutes from './publicComponents/PublicRequestedRoutes';
 import Loading from './Loading';
+import HeroHeader from './publicComponents/HeroHeader';
 
 export default function HomePage() {
   const { data: session, status } = useSession();
@@ -45,20 +46,9 @@ export default function HomePage() {
 
   return (
     <>
+        <HeroHeader/>
+
       <section className="landing-page-main__section">
-
-
-
-
-        {/* <section className="landing-page__search-area">
-          <input type="text" id="landing-page__search-input" />
-          <button>&#128270; offers</button>
-          <button>&#128270; requests</button>
-        </section> */}
-
-
-
-
         <div className="">
           <button
             onClick={(e: any) => handleSelection(e.target.textContent)}
