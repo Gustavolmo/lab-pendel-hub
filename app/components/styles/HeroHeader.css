@@ -20,3 +20,26 @@
   font-weight: 100;
   font-family: 'Montserrat', sans-serif;
 }
+
+.header-text {
+  position: absolute;
+  top: 20%;
+  transform: translate(-50%), -50%;
+  animation-name: moveInLeft;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  70% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    translate: (0);
+  } 
+}
