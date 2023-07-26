@@ -105,6 +105,8 @@ button:hover,
   margin: 0 0 0 8px;
 }
 
+
+
 .total-pax {
   position: absolute;
   top: 90px;
@@ -179,4 +181,5 @@ button:hover,
   margin-bottom: 8px;
   width: 100px;
   height: 100px;
+  border-radius: 999;
 }
